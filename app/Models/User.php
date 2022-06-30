@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'refral_code',
+        'refral_by',
         'status',
         'is_block',
         'Phone_number',

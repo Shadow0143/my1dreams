@@ -36,7 +36,7 @@
                         @forelse($masterList as $key => $val)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                <td>{{ $val->name }}</td>
+                                <td>{{ ucfirst($val->name) }}</td>
                                 <td>{{ $val->email }}</td>
                                 <td>{{ $val->Phone_number }}</td>
                                 <td>{{ $val->address }}</td>

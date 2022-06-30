@@ -21,7 +21,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // Dashboard
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/master', [App\Http\Controllers\MasterController::class, 'master'])->name('master');
-    Route::get('/add-master', [App\Http\Controllers\MasterController::class, 'addMasterForm'])->name('addMasterForm');
+    Route::get('/master-form', [App\Http\Controllers\MasterController::class, 'addMasterForm'])->name('addMasterForm');
+    Route::post('/submit-master', [App\Http\Controllers\MasterController::class, 'submitMaster'])->name('submitMaster');
 
 });
 

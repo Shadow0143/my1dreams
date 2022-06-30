@@ -17,13 +17,11 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h3>Add Masters</h3>
-                                        <p class="text-danger"> All * fields are mandatory</p>
-
                                     </div>
                                     
                                     <div class="card-block">    
                                         <div >
-                                            <form action="j-pro/php/action.php" method="post" class="j-pro"
+                                            <form action="{{ route('submitMaster') }}" method="post" class="j-pro"
                                                 id="j-pro" enctype="multipart/form-data" > 
                                                 @csrf
                                                 <!-- end /.header-->
@@ -35,8 +33,10 @@
                                                                 <label class="j-icon-right" for="first_name">
                                                                     <i class="icofont icofont-ui-user"></i>
                                                                 </label>
-                                                                <input type="text" id="first_name" name="first_name"
+                                                                <input type="text" id="first_name" name="full_name"
                                                                     placeholder="Full name">
+                                                                    <span
+                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('full_name') }}</span>
                                                             </div>
                                                         </div>
                                                         <div class="j-row">
@@ -47,6 +47,8 @@
                                                                     </label>
                                                                     <input type="email" placeholder="Email" id="email"
                                                                         name="email">
+                                                                        <span
+                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('email') }}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="j-span6 j-unit">
@@ -56,7 +58,35 @@
                                                     </div>
                                                     <!-- end name -->
                                                     <!-- start email phone -->
-                                                   
+                                                    <div class="j-row">
+                                                        <div class="j-span6 j-unit">
+                                                            <div class="j-input">
+                                                                <label class="j-icon-right" for="password">
+                                                                    <i class="icofont icofont-ui-password"></i>
+                                                                </label>
+                                                                <input type="password" id="password" name="password"
+                                                                    placeholder="Password">
+                                                                    <span
+                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('full_name') }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="j-row">
+                                                            <div class="j-span6 j-unit">
+                                                                <div class="j-input">
+                                                                    <label class="j-icon-right" for="confirm_password">
+                                                                        <i class="icofont icofont-ui-password"></i>
+                                                                    </label>
+                                                                    <input type="password" placeholder="Confirm Password" id="confirm_password"
+                                                                        name="confirm_password">
+                                                                        <span
+                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('confirm_password') }}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="j-span6 j-unit">
+                                                            
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <!-- end email phone -->
                                                     <div class="divider gap-bottom-25"></div>
                                                 
