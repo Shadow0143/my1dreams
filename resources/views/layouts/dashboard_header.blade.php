@@ -27,12 +27,33 @@
     <link rel="stylesheet" href="{{ asset('extra/libraries\assets\pages\chart\radial\css\radial.css') }}" type="text/css" media="all">
     <!-- feather Awesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\icon\feather\css\feather.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\bower_components\bootstrap\css\bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\icon\themify-icons\themify-icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\icon\icofont\css\icofont.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\icon\feather\css\feather.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\pages\j-pro\css\demo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\pages\j-pro\css\font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\pages\j-pro\css\j-pro-modern.css') }}">
+
+
+
+
+
+
+    <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\pages\data-table\css\buttons.dataTables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css') }}">
+
+
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\css\style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\css\jquery.mCustomScrollbar.css') }}">
 </head>
 <!-- Menu sidebar static layout -->
 <body>
+    @include('sweetalert::alert')
+    @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
     <!-- Pre-loader start -->
     <div class="theme-loader">
         <div class="ball-scale">
@@ -94,7 +115,7 @@
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="{{ route('addMasterForm') }}">
+                                            <a href="{{ route('master') }}">
                                                 <span class="pcoded-mtext">Masters</span>
                                             </a>
                                         </li>
