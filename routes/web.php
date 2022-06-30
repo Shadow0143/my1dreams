@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MasterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,10 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    
+    // Dashboard
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/add-master', [App\Http\Controllers\MasterController::class, 'addMasterForm'])->name('addMasterForm');
+
+});
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

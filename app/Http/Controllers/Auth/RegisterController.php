@@ -68,6 +68,13 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'refral_code' =>'sup_001',
+            'status' => '1',
+            'is_block' => 'no',
+            'Phone_number' => 8340325636,
+            'address' => 'Jamshedpur',
+            'user_type' => 'superAdmin',
+            'role' => '1',
         ]);
     }
 }
