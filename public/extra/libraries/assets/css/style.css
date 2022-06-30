@@ -8899,7 +8899,7 @@ table tbody .border-bottom-info td {
 }
 
 .pcoded[theme-layout="vertical"][vertical-placement="left"][vertical-nav-type="expanded"][vertical-effect="shrink"] .pcoded-content {
-    margin-left: 240px
+    margin-left: 0px
 }
 
 .pcoded[theme-layout="vertical"][vertical-placement="right"][vertical-nav-type="expanded"][vertical-effect="shrink"] .pcoded-header.iscollapsed .pcoded-right-header,
@@ -11040,7 +11040,7 @@ table tbody .border-bottom-info td {
     display: block;
     cursor: pointer;
     text-align: center;
-    background: #01a9ac;
+    background: #ff1a75;
     color: #fff;
     -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
@@ -14698,7 +14698,7 @@ label.txt-ellipsis {
 
 .j-pro .j-footer {
     background-color: #fff;
-    border-top: 1px dashed #01a9ac;
+    border-top: 1px dashed #ff1a75;
     padding: 20px 25px;
     position: inherit
 }
@@ -14796,7 +14796,7 @@ label.txt-ellipsis {
 .j-pro .j-file-button,
 .j-pro .j-secondary-btn,
 .j-pro .j-widget .j-addon-btn {
-    background-color: #01a9ac
+    background-color: #ff1a75
 }
 
 .j-pro .j-primary-btn:hover,
@@ -25232,3 +25232,4 @@ body.dark #styleSelector .form-control {
 *# sourceMappingURL=style.css.map */,
 *# sourceMappingURL=style.css.map */,
 *# sourceMappingURL=style.css.map */,
+#ff1a75

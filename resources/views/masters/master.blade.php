@@ -3,160 +3,72 @@
 <div class="wrapper">
     <div class="card">
         <div class="card-header">
-            <h3>Masters List</h3>
-            <div class="card-header-right">
-                <i class="icofont icofont-spinner-alt-5"></i>
+            <div class="col-12 row">
+                <div class="col-md-10">
+                    <h3>Masters List</h3>
+                    <div class="card-header-right">
+                        <i class="icofont icofont-spinner-alt-5"></i>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a href="{{ route('addMasterForm') }}" class="btn btn-sm"><span class="label label-danger">+ Add
+                            Masters</span> </a>
+                </div>
             </div>
-            <div class="card-header-left">
-                <a href="{{ route('addMasterForm') }}"><span class="label label-danger">+ Add Masters</span> </a>
-            </div>
+
         </div>
         <div class="card-block">
             <div class="table-responsive">
                 <table id="issue-list-table" class="table dt-responsive width-100">
                     <thead class="text-left">
                         <tr>
-                            <th>Type</th>
-                            <th>#ID</th>
-                            <th>Description</th>
-                            <th>Start date</th>
-                            <th>Priority</th>
-                            <th>Assigned</th>
+                            <th>Sl. No.</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact Number</th>
+                            <th>Address</th>
                             <th>Status</th>
+                            <th>Block</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody class="text-left">
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198756541080</td>
-                            <td>Software Run Failure</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-danger">Highest</span></td>
-                            <td><a href="#">Katerina larson</a></td>
-                            <td><span class="label label-primary">Open</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198756897280</td>
-                            <td>Server Randering</td>
-                            <td>2015/04/22</td>
-                            <td><span class="label label-success">Normal</span></td>
-                            <td><a href="#">Mitchell Jones</a></td>
-                            <td><span class="label label-danger">Close</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198773249750</td>
-                            <td>Cluster Load Balancing</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-info">Slow</span></td>
-                            <td><a href="#">Michal Marshell</a></td>
-                            <td><span class="label label-warning">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:197016541230</td>
-                            <td>Data Mirroring Error</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-warning">High</span></td>
-                            <td><a href="#">Tiger Nixon</a></td>
-                            <td><span class="label label-danger">Close</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:282256541230</td>
-                            <td>Software Run Failure</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-success">Normal</span></td>
-                            <td><a href="#">Raghuvinder Singh</a></td>
-                            <td><span class="label label-primary">Open</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:382906541279</td>
-                            <td>Package Fatal Error</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-warning">High</span></td>
-                            <td><a href="#">Alex standoman</a></td>
-                            <td><span class="label label-warning">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:497056541220</td>
-                            <td>Server Authontication Error</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-warning">High</span></td>
-                            <td><a href="#">Roya Hamad</a></td>
-                            <td><span class="label label-warning">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198756541230</td>
-                            <td>Software Run Failure</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-danger">Highest</span></td>
-                            <td><a href="#">Carry Mathison</a></td>
-                            <td><span class="label label-primary">Open</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198756541230</td>
-                            <td>Software Run Failure</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-danger">Highest</span></td>
-                            <td><a href="#">Dugless hole</a></td>
-                            <td><span class="label label-info">On Hold</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198756541230</td>
-                            <td>Package Security Failure</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-info">slow</span></td>
-                            <td><a href="#">Tiger Nixon</a></td>
-                            <td><span class="label label-danger">Close</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198756541230</td>
-                            <td>Software Run Failure</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-warning">High</span></td>
-                            <td><a href="#">Tiger Nixon</a></td>
-                            <td><span class="label label-info">On hold</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198756541230</td>
-                            <td>Software Run Failure</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-info">slow</span></td>
-                            <td><a href="#">Tiger Nixon</a></td>
-                            <td><span class="label label-warning">Pending</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198756541230</td>
-                            <td>Software Run Failure</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-success">Normal</span></td>
-                            <td><a href="#">Tiger Nixon</a></td>
-                            <td><span class="label label-danger">Close</span></td>
-                        </tr>
-                        <tr>
-                            <td class="txt-primary">Bug</td>
-                            <td>PI:198756541230</td>
-                            <td>Software Run Failure</td>
-                            <td>2015/01/10</td>
-                            <td><span class="label label-info">slow</span></td>
-                            <td><a href="#">Tiger Nixon</a></td>
-                            <td><span class="label label-info">On Hold</span></td>
-                        </tr>
+                        @forelse($masterList as $key => $val)
+                            <tr>
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $val->name }}</td>
+                                <td>{{ $val->email }}</td>
+                                <td>{{ $val->Phone_number }}</td>
+                                <td>{{ $val->address }}</td>
+                                <td>
+                                    @if ($val->status == 1)
+                                        <span class="label label-success">Active</span>
+                                    @else
+                                        <span class="label label-danger">Deactive</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($val->is_block == 'no')
+                                        <span class="label label-success">No</span>
+                                    @else
+                                        <span class="label label-danger">Yes</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="" class="text-warning"> <i class="fa fa-pencil-square-o" aria-hidden="true" title=" Edit"></i></a>
+                                    <a href="" class="text-danger"><i class="fa fa-ban" aria-hidden="true" title="Block"></i></a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td>No data found.</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
             <!-- end of table -->
         </div>
     </div>
-  </div>
- @include('layouts.dashboard_footer')
+</div>
+@include('layouts.dashboard_footer')
