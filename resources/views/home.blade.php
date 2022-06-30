@@ -30,7 +30,8 @@
 
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
-        <div class="main-body">
+       
+        <div class="main-body" id="dashboard_main">
             <div class="page-wrapper">
                 <div class="page-body">
                     <div class="row">

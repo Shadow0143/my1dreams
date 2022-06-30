@@ -23774,6 +23774,10 @@ span.value {
     }
 }
 
+#dashboard_main {
+    padding-left: 250px;
+}
+
 @media only screen and (max-width: 991px) {
     .main-body .page-wrapper .align-items-end .page-header-title {
         text-align: center;
