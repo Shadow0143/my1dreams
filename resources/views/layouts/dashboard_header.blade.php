@@ -32,3 +32,84 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('extra/libraries\assets\css\jquery.mCustomScrollbar.css') }}">
 </head>
 <!-- Menu sidebar static layout -->
+<body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            @include('layouts.dashboard_nav')
+
+            <!-- Sidebar chat start -->         
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        <div class="pcoded-inner-navbar main-menu">
+                            <div class="pcoded-navigatio-lavel">Navigation</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu active pcoded-trigger">
+                                    
+                                    <ul class="pcoded-submenu">
+                                        <li>
+                                            <a href="{{ route('home') }}">
+                                                <span class="">Dashboard</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{{ route('addMasterForm') }}">
+                                                <span class="pcoded-mtext">Masters</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="dashboard-crm.htm">
+                                                <span class="pcoded-mtext">CRM</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="dashboard-analytics.htm">
+                                                <span class="pcoded-mtext">Analytics</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
