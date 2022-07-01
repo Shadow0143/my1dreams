@@ -25,6 +25,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/master', [App\Http\Controllers\MasterController::class, 'master'])->name('master');
     Route::get('/master-form', [App\Http\Controllers\MasterController::class, 'addMasterForm'])->name('addMasterForm');
     Route::post('/submit-master', [App\Http\Controllers\MasterController::class, 'submitMaster'])->name('submitMaster');
+    Route::get('/block-master', [App\Http\Controllers\MasterController::class, 'blockMaster'])->name('blockMaster');
+    Route::get('/edit-master/{id}', [App\Http\Controllers\MasterController::class, 'editMaster'])->name('editMaster');
     
 });
 

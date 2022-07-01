@@ -63,5 +63,23 @@ class MasterController extends Controller
 
     }
 
+    public function blockMaster(Request $request)
+    {
+            $master = User::find($request->master_id);
+            if($request->master_type=='unblock'){
+                $master->is_block='no';
+            }else{
+                $master->is_block='yes';
+            }
+            $master->save();
+            $send = ['id'=>$request->master_id,'type'=>$request->master_type];
+            return $send;
+    }
+
+    public function editMaster($id)
+    {
+        $master = User::find($id);
+        return view('masters.editMasterForm',compact('master'));
+    }
 
 }

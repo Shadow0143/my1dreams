@@ -49,14 +49,15 @@
                                 </td>
                                 <td>
                                     @if ($val->is_block == 'no')
-                                        <span class="label label-success">No</span>
-                                    @else
-                                        <span class="label label-danger">Yes</span>
-                                    @endif
+                                    <a href="" class="text-danger block_unblock" data-id="{{ $val->id }}" data-type="block" id="blockMaster"><i class="fa fa-ban icon_size" aria-hidden="true" title="Block"></i></a>
+                                @else
+                                    <a href="" class="text-success block_unblock" data-id="{{ $val->id }}" data-type="unblock" id="unblock"><i class="fa fa-ban icon_size" aria-hidden="true" title="Unblock"></i></a>
+                                @endif
                                 </td>
                                 <td>
-                                    <a href="" class="text-warning"> <i class="fa fa-pencil-square-o" aria-hidden="true" title=" Edit"></i></a>
-                                    <a href="" class="text-danger"><i class="fa fa-ban" aria-hidden="true" title="Block"></i></a>
+                                    <a href="{{ route('editMaster',['id' => $val->id]) }}" class="text-warning"  id="editMaster"> <i class="fa fa-pencil-square-o icon_size" aria-hidden="true" title=" Edit"></i></a>
+                                   
+
                                 </td>
                             </tr>
                         @empty
@@ -71,4 +72,68 @@
         </div>
     </div>
 </div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    $(document).on('click', '.block_unblock', function(e) {
+        e.preventDefault();
+        var master_id = $(this).data('id');
+        var master_type = $(this).data('type');
+        if(master_type =='block')
+        {
+            var messsage = "You won't block this master !";
+        }else{
+            var messsage = "You won't unblock this master !";
+
+        }
+        swal({
+            title: 'Are you sure?',
+            text: messsage,
+            icon: 'warning',
+            buttons: true,
+            buttonsStyling: false,
+            reverseButtons: true
+        }).then((confirm) => {
+            if (confirm) {
+                $.ajax({
+                    type: "GET",
+                    url: '{{ route('blockMaster') }}',
+                    data: {
+                        master_id: master_id,
+                        master_type:master_type
+                    },
+                    success: function(data) {
+                        if(data.type =='block'){
+                        swal({
+                            title: 'Success',
+                            text: "Blocked",
+                            icon: 'success',
+                            buttons: true,
+                            buttonsStyling: false,
+                            reverseButtons: true
+                        });
+                        setInterval(window.location.reload(), 100000);
+                    }   if(data.type =='unblock'){
+                        swal({
+                            title: 'Success',
+                            text: "Unblocked",
+                            icon: 'success',
+                            buttons: true,
+                            buttonsStyling: false,
+                            reverseButtons: true
+                        });
+                        setInterval(window.location.reload(), 100000);
+                    }
+                    }
+                });
+            }
+
+        });
+    });
+</script>
 @include('layouts.dashboard_footer')
+
