@@ -1,0 +1,15 @@
+{
+    "name": "My 1 Dreams",
+    "short_name": "M1D",
+    "start_url": "/",
+    "background_color": "#6777ef",
+    "description": "My 1 Dreams",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
+    "icons": [{
+        "src": "logo.PNG",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+    }]
+}

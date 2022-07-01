@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         'Intervention\Image\ImageServiceProvider',
+        Ladumor\LaravelPwa\PWAServiceProvider::class,
         
 
         /*
@@ -235,6 +236,7 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Image' => 'Intervention\Image\Facades\Image',
+        'LaravelPwa' => \Ladumor\LaravelPwa\LaravelPwa::class,
 
     ],
 
