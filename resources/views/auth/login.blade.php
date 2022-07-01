@@ -116,11 +116,15 @@
     <div class="container">
         <div class="screen">
             <div class="screen__content">
+                <div class="loginheader text-center">
+                    <h3>LOGIN</h3>
+                    <hr id="hr">
+                </div>
                 
                 <form method="POST" action="{{ route('customLogin') }}">
                     @csrf
                     <div class="login__field">
-                        <i class="fa fa-mobile"></i>
+                        <i class="fa fa-mobile icon_size"></i>
                         <input type="text" class="login__input  @error('phone_no') is-invalid @enderror numericOnly" placeholder="Phone Number" name="Phone_number"  id="Phone_number" maxlength="10" autocomplete="new-password" required>
                      
                         @error('phone_no')
@@ -130,7 +134,7 @@
                         @enderror
                     </div>
                     <div class="login__field">
-                        <i class="fa fa-key"></i>
+                        <i class="fa fa-key icon_size"></i>
                         <input type="password" class="login__input @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password">
 
                         <input  type="password" class="login__input @error('password') is-invalid @enderror"   style="display: none;">
@@ -148,8 +152,8 @@
 
                 <div class="social-login">
                       <button class="button login__submit" type="sumit">
-                        <span class="button__text mr-5">Log In Now</span>
-                        <i class="fa fa-chevron-right ml-5" ></i><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i>
+                        <span class="button__text mr-2 ml-5">Log In Now</span>
+                        <i class="fa fa-chevron-right ml-5" ></i><i class="fa fa-chevron-right"></i>
                     </button>		
                 </div>
             </div>
