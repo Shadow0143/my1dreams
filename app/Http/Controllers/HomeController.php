@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $numberOfMaster = User::where('user_type','Master')->count();
+        $numberOfMember = User::where('user_type','Member')->count();
+        return view('home',compact('numberOfMaster','numberOfMember'));
     }
 }

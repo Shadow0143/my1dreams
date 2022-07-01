@@ -14,7 +14,7 @@ class MasterController extends Controller
 
     public function master()
     {
-        $masterList = User::select('id','name','refral_code','status','is_block','Phone_number','address','email')->get();
+        $masterList = User::select('id','name','refral_code','status','is_block','Phone_number','address','email','profile_pic')->get();
         return view('masters.master',compact('masterList'));
     }
 

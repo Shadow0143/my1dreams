@@ -121,9 +121,16 @@
                                                 <span class="">Dashboard</span>
                                             </a>
                                         </li>
+                                        @if(Auth::user()->user_type=='superAdmin')
                                         <li class="">
                                             <a href="{{ route('master') }}">
                                                 <span class="pcoded-mtext">Masters</span>
+                                            </a>
+                                        </li>
+                                        @endif
+                                        <li class="">
+                                            <a href="{{ route('master') }}">
+                                                <span class="pcoded-mtext">Members</span>
                                             </a>
                                         </li>
                                         <li class="">

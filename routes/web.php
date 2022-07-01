@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CustomController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +25,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/master', [App\Http\Controllers\MasterController::class, 'master'])->name('master');
     Route::get('/master-form', [App\Http\Controllers\MasterController::class, 'addMasterForm'])->name('addMasterForm');
     Route::post('/submit-master', [App\Http\Controllers\MasterController::class, 'submitMaster'])->name('submitMaster');
-
+    
 });
 
+Route::post('/custom-login', [App\Http\Controllers\CustomController::class, 'customLogin'])->name('customLogin');
 
 Route::get('/', function () {
     return view('welcome');
