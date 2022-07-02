@@ -21,13 +21,18 @@
                                     
                                     <div class="card-block">    
                                             <div id="profile_imagediv">
+                                                @if(!empty($master->profile_pic))
                                                 <img src="{{ asset('uploads/profilePic') }}/{{ $master->profile_pic }}" alt="profile_image" id="profile_image"> 
+                                                @else
+                                                <img src="{{ asset('images/nouser.jpg') }}" alt="No User" id="profile_image"> 
+                                                @endif
                                             </div>
                                         <div >
                                             <form action="{{ route('submitMaster') }}" method="post" class="j-pro"
                                                 id="j-pro" enctype="multipart/form-data" > 
                                                 @csrf
                                                 <!-- end /.header-->
+                                                <input type="hidden" name="master_id" id="master_id" value="{{ $master->id }}">
                                                 <div class="j-content">
                                                     <!-- start name -->
                                                     <div class="j-row">
@@ -68,7 +73,7 @@
                                                                     <i class="icofont icofont-ui-password"></i>
                                                                 </label>
                                                                 <input type="password" id="password" name="password"
-                                                                    placeholder="Password">
+                                                                    placeholder="Password" autocomplete="new-password">
                                                                     <span
                                                                     style="font-weight: bold;color: #ff0000">{{ $errors->first('full_name') }}</span>
                                                             </div>
@@ -80,7 +85,7 @@
                                                                         <i class="icofont icofont-ui-password"></i>
                                                                     </label>
                                                                     <input type="password" placeholder="Confirm Password" id="confirm_password"
-                                                                        name="confirm_password">
+                                                                        name="confirm_password" autocomplete="new-password">
                                                                         <span
                                                                     style="font-weight: bold;color: #ff0000">{{ $errors->first('confirm_password') }}</span>
                                                                 </div>
@@ -95,15 +100,15 @@
                                                 
                                                     <!-- start city post code -->
                                                     <div class="j-row">
-                                                        <div class="j-span8 j-unit">
+                                                        <div class="j-span4 j-unit">
                                                             <div class="j-input j-append-small-btn">
                                                                 <div class="j-file-button">
                                                                     Browse
                                                                     <input type="file" name="profile_pic"
-                                                                        onchange="document.getElementById('profile_pic').value = this.value;">
+                                                                        onchange="document.getElementById('profile_pic').value = this.value;" accept="image/*">
                                                                 </div>
                                                                 <input type="text" id="profile_pic" readonly=""
-                                                                    placeholder="Profile Pic">
+                                                                    placeholder="Profile Pic" value="">
                                                             </div>
                                                         </div>
                                                         <div class="j-span4 j-unit">
@@ -115,6 +120,14 @@
                                                                     name="phone" value="{{ $master->Phone_number }}">
                                                                 <span class="j-tooltip j-tooltip-right-top">Your contact
                                                                     phone number</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="j-span4 j-unit">
+                                                            <div class="j-input">
+                                                              <select name="status" id="status">
+                                                                <option value="1" {{ $master->status == 1 ? 'selected' : '' }}>Active</option>
+                                                                <option value="0" {{ $master->status == 0 ? 'selected' : '' }}>Deactive</option>
+                                                              </select>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -134,9 +147,7 @@
                                                 </div>
                                                 <!-- end /.content -->
                                                 <div class="j-footer">
-                                                    <button type="submit" class="btn btn-danger">Send</button>
-                                                    <button type="reset"
-                                                        class="btn btn-default m-r-20">Reset</button>
+                                                    <button type="submit" class="btn btn-danger">Update</button>
                                                 </div>
                                                 <!-- end /.footer -->
                                             </form>
@@ -158,4 +169,14 @@
         </div>
     </div>
 </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+        $(".numericOnly").keypress(function (e) {
+            if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
+        });
+    </script>
 @include('layouts.dashboard_footer')
