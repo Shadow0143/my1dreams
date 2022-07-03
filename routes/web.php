@@ -23,12 +23,12 @@ Auth::routes();
 Route::post('/custom-login', [App\Http\Controllers\CustomController::class, 'customLogin'])->name('customLogin');
 Route::get('/block-page', [App\Http\Controllers\CustomController::class, 'blockpage'])->name('blockpage');
 Route::get('/no-access', [App\Http\Controllers\CustomController::class, 'noAccessPage'])->name('noAccessPage');
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
 
 Route::middleware(['auth','checkblock','superadminAccess'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/master', [App\Http\Controllers\MasterController::class, 'master'])->name('master');
     Route::get('/master-form', [App\Http\Controllers\MasterController::class, 'addMasterForm'])->name('addMasterForm');
     Route::post('/submit-master', [App\Http\Controllers\MasterController::class, 'submitMaster'])->name('submitMaster');
@@ -38,12 +38,19 @@ Route::middleware(['auth','checkblock','superadminAccess'])->prefix('admin')->gr
 });
 
 Route::middleware(['auth','checkblock','masterAccess'])->prefix('master')->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/member', [App\Http\Controllers\MemberController::class, 'member'])->name('member');
     Route::get('/member-form', [App\Http\Controllers\MemberController::class, 'addMemberForm'])->name('addMemberForm');
     Route::post('/submit-member', [App\Http\Controllers\MemberController::class, 'submitMember'])->name('submitMember');
     Route::get('/block-member', [App\Http\Controllers\MemberController::class, 'blockMember'])->name('blockMember');
     Route::get('/delete-member', [App\Http\Controllers\MemberController::class, 'deleteMember'])->name('deleteMember');
     Route::get('/edit-member/{id}', [App\Http\Controllers\MemberController::class, 'editMember'])->name('editMember');
+});
+
+
+Route::middleware(['auth','checkblock'])->prefix('member')->group(function () {
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 });
 
 

@@ -11,8 +11,12 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="{{ route('addMemberForm') }}" class="btn btn-sm"><span class="label label-danger">+ Add
-                            Member</span> </a>
+                    @if ($limit >= 20)
+                        <a href="javascript:void(0);" class="btn btn-sm" disabled style="cursor: not-allowed"><span class="label label-danger">+ Add Member</a>
+                    @else
+                        <a href="{{ route('addMemberForm') }}" class="btn btn-sm"><span class="label label-danger">+
+                                Add Member</span> </a>
+                    @endif
                 </div>
             </div>
 
@@ -49,16 +53,24 @@
                                 </td>
                                 <td>
                                     @if ($val->is_block == 'no')
-                                    <a href="" class="text-danger block_unblock" data-id="{{ $val->id }}" data-type="block" id="blockMaster"><i class="fa fa-ban icon_size" aria-hidden="true" title="Block"></i></a>
-                                @else
-                                    <a href="" class="text-success block_unblock" data-id="{{ $val->id }}" data-type="unblock" id="unblock"><i class="fa fa-ban icon_size" aria-hidden="true" title="Unblock"></i></a>
-                                @endif
+                                        <a href="" class="text-danger block_unblock"
+                                            data-id="{{ $val->id }}" data-type="block" id="blockMaster"><i
+                                                class="fa fa-ban icon_size" aria-hidden="true" title="Block"></i></a>
+                                    @else
+                                        <a href="" class="text-success block_unblock"
+                                            data-id="{{ $val->id }}" data-type="unblock" id="unblock"><i
+                                                class="fa fa-ban icon_size" aria-hidden="true" title="Unblock"></i></a>
+                                    @endif
                                 </td>
                                 <td>
-                                    <a href="{{ route('editMember',['id' => $val->id]) }}" class="text-warning"  id="editMaster"> <i class="fa fa-pencil-square-o icon_size" aria-hidden="true" title=" Edit"></i></a>
+                                    <a href="{{ route('editMember', ['id' => $val->id]) }}" class="text-warning"
+                                        id="editMaster"> <i class="fa fa-pencil-square-o icon_size" aria-hidden="true"
+                                            title=" Edit"></i></a>
 
-                                    <a href="javaScript:void(0);" class="text-danger deleteMember"  id="deleteMember" data-id="{{ $val->id }}"> <i class="fa fa-trash icon_size" aria-hidden="true" title=" Delete"></i></a>
-                                   
+                                    <a href="javaScript:void(0);" class="text-danger deleteMember" id="deleteMember"
+                                        data-id="{{ $val->id }}"> <i class="fa fa-trash icon_size"
+                                            aria-hidden="true" title=" Delete"></i></a>
+
                                 </td>
                             </tr>
                         @empty
@@ -76,18 +88,17 @@
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     $(document).on('click', '.block_unblock', function(e) {
         e.preventDefault();
         var master_id = $(this).data('id');
         var master_type = $(this).data('type');
-        if(master_type =='block')
-        {
+        if (master_type == 'block') {
             var messsage = "You won't block this member !";
-        }else{
+        } else {
             var messsage = "You won't unblock this member !";
 
         }
@@ -105,30 +116,31 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                     url: '{{ route('blockMember') }}',
                     data: {
                         master_id: master_id,
-                        master_type:master_type
+                        master_type: master_type
                     },
                     success: function(data) {
-                        if(data.type =='block'){
-                        swal({
-                            title: 'Success',
-                            text: "Blocked",
-                            icon: 'success',
-                            buttons: true,
-                            buttonsStyling: false,
-                            reverseButtons: true
-                        });
-                        setInterval(window.location.reload(), 100000);
-                    }   if(data.type =='unblock'){
-                        swal({
-                            title: 'Success',
-                            text: "Unblocked",
-                            icon: 'success',
-                            buttons: true,
-                            buttonsStyling: false,
-                            reverseButtons: true
-                        });
-                        setInterval(window.location.reload(), 100000);
-                    }
+                        if (data.type == 'block') {
+                            swal({
+                                title: 'Success',
+                                text: "Blocked",
+                                icon: 'success',
+                                buttons: true,
+                                buttonsStyling: false,
+                                reverseButtons: true
+                            });
+                            setInterval(window.location.reload(), 100000);
+                        }
+                        if (data.type == 'unblock') {
+                            swal({
+                                title: 'Success',
+                                text: "Unblocked",
+                                icon: 'success',
+                                buttons: true,
+                                buttonsStyling: false,
+                                reverseButtons: true
+                            });
+                            setInterval(window.location.reload(), 100000);
+                        }
                     }
                 });
             }
@@ -139,7 +151,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     $(document).on('click', '.deleteMember', function(e) {
         e.preventDefault();
-        var member_id = $(this).data('id');      
+        var member_id = $(this).data('id');
         swal({
             title: 'Are you sure?',
             text: "You want to delete member !",
@@ -164,8 +176,8 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                             buttonsStyling: false,
                             reverseButtons: true
                         });
-                        $('#removerow'+data).hide();
-                    
+                        $('#removerow' + data).hide();
+
                     }
                 });
             }
@@ -174,4 +186,3 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     });
 </script>
 @include('layouts.dashboard_footer')
-

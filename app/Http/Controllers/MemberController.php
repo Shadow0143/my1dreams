@@ -16,8 +16,9 @@ class MemberController extends Controller
    
     public function member()
     {
+        $limit = User::select()->where('refral_by',Auth::user()->refral_code)->count();
         $memberList = User::select('id', 'name', 'refral_code', 'status', 'is_block', 'Phone_number', 'address', 'email', 'profile_pic')->where('user_type', 'Member')->get();
-        return view('members.member', compact('memberList'));
+        return view('members.member', compact('memberList','limit'));
     }
 
     public function addMemberForm()
