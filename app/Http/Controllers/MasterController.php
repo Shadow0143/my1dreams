@@ -88,7 +88,7 @@ class MasterController extends Controller
             $master->save();
             Alert::success('Success ', 'Master added successfully');
         }
-        return redirect('/admin/master');
+        return redirect()->route('master');
     }
 
     public function blockMaster(Request $request)

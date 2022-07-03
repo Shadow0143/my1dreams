@@ -60,4 +60,9 @@ class CustomController extends Controller
     {
         return view('blockpage');
     }
+    
+    public function noAccessPage()
+    {
+        return view('noaccess');
+    }
 }

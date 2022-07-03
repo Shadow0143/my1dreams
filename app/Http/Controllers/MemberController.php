@@ -90,7 +90,7 @@ class MemberController extends Controller
             $master->save();
             Alert::success('Success ', 'Master added successfully');
         }
-        return redirect('/admin/member');
+        return redirect()->route('member');
     }
 
     public function blockMember(Request $request)

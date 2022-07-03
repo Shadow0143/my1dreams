@@ -11,14 +11,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="icon" href="{{ asset('extra/libraries\assets\images\favicon.ico') }}" type="image/x-icon">
-@laravelPWA
+
+    @laravelPWA
 </head>
 
 <body>
-    <div class="col-12 text-center">
-        <img src="{{ asset('images/blocked.jpg') }}" alt="block">
-        <h1 class="text-danger mt-5 ml-5"> You are blocked by Super Admin. Please contact with him.</h1>
-        <a href="{{ route('login') }}"> Login </a>
+    <div class="mt-5 text-center">
+        <img src="{{ asset('images/noaccess.jpeg') }}" alt="no acces">
+        <h1 class="text-danger">Sorry you don't have access to this page.</h1>
+        <a href="{{ route('home') }}">Return to home</a>
+
     </div>
 
     <!-- Optional JavaScript -->
