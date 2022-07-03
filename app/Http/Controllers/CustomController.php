@@ -15,7 +15,6 @@ class CustomController extends Controller
     public function customLogin(Request $request)
     {
         $check = 0;
-// dd($request->all());
         $request->validate([
             'Phone_number' => 'required',
             'password' => 'required'
@@ -52,11 +51,13 @@ class CustomController extends Controller
 
     }
 
-
-
-
     public function sendFailedLoginResponse(string $key = null, string $message = null)
     {
         session()->flash( $key, $message );
+    }
+
+    public function blockPage()
+    {
+        return view('blockpage');
     }
 }

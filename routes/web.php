@@ -6,6 +6,7 @@ use App\Http\Controllers\MasterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CustomController;
 use App\Http\Controllers\MemberController;
+Use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,8 +19,12 @@ use App\Http\Controllers\MemberController;
 */
 
 Auth::routes();
+// return view('blockpage');
+Route::post('/custom-login', [App\Http\Controllers\CustomController::class, 'customLogin'])->name('customLogin');
+Route::get('/block-page', [App\Http\Controllers\CustomController::class, 'blockpage'])->name('blockpage');
 
-Route::middleware(['auth'])->prefix('admin')->group(function () {
+
+Route::middleware(['auth','checkblock'])->prefix('admin')->group(function () {
     
     // Dashboard
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -39,7 +44,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     
 });
 
-Route::post('/custom-login', [App\Http\Controllers\CustomController::class, 'customLogin'])->name('customLogin');
 
 Route::get('/', function () {
     return view('welcome');

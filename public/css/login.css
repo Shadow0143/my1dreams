@@ -29,7 +29,7 @@ body {
     z-index: 1;
     position: relative;
     height: 70%;
-    margin-top: 10rem;
+    margin-top: 9rem;
 }
 
 .screen__background {
@@ -95,9 +95,9 @@ body {
     position: relative;
     padding-left: 2px;
     border-bottom: 2px solid #c8c8c8;
-    width: 70%;
+    width: 64%;
     margin-left: 30px;
-    margin-top: 30px;
+    margin-top: 23px;
 }
 
 .login__icon {
