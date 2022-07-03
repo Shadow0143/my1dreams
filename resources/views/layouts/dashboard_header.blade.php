@@ -128,11 +128,13 @@
                                             </a>
                                         </li>
                                         @endif
+                                        @if(Auth::user()->user_type=='Master')
                                         <li class="">
-                                            <a href="{{ route('master') }}">
+                                            <a href="{{ route('member') }}">
                                                 <span class="pcoded-mtext">Members</span>
                                             </a>
                                         </li>
+                                        @endif
                                         <li class="">
                                             <a href="dashboard-crm.htm">
                                                 <span class="pcoded-mtext">CRM</span>
