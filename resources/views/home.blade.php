@@ -77,8 +77,15 @@
                                     <div class="card-block">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <p class="m-b-5">Ticket</p>
-                                                <h4 class="m-b-0">42</h4>
+                                                <p class="m-b-5">Coins</p>
+                                                <h4 class="m-b-0">
+                                                    @if(!empty($coins))
+                                                    {{ $coins }}
+                                                    @else
+                                                        0
+                                                    @endif
+                                                    
+                                                </h4>
                                             </div>
                                             <div class="col col-auto text-right">
                                                 <i class="feather icon-book f-50 text-c-pink"></i>
@@ -92,8 +99,14 @@
                                     <div class="card-block">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <p class="m-b-5">Orders</p>
-                                                <h4 class="m-b-0">$5,242</h4>
+                                                <p class="m-b-5">Invest Amount</p>
+                                                <h4 class="m-b-0">
+                                                    @if(!empty($playGame))
+                                                    {{ $playGame }}
+                                                    @else
+                                                        0
+                                                    @endif
+                                                </h4>
                                             </div>
                                             <div class="col col-auto text-right">
                                                 <i class="feather icon-shopping-cart f-50 text-c-blue"></i>

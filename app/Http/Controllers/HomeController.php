@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Coin;
+use App\Models\PlayGame;
 
 class HomeController extends Controller
 {
@@ -26,6 +29,8 @@ class HomeController extends Controller
     {
         $numberOfMaster = User::where('user_type','Master')->count();
         $numberOfMember = User::where('user_type','Member')->count();
-        return view('home',compact('numberOfMaster','numberOfMember'));
+        $coins = Coin::select('available_amount')->where('user_id',Auth::user()->id)->orderBy('id','DESC')->first();
+        $playGame = PlayGame::select('amount')->where('user_id',Auth::user()->id)->sum('amount');
+        return view('home',compact('numberOfMaster','numberOfMember','coins','playGame'));
     }
 }
