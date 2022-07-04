@@ -29,6 +29,9 @@ Route::middleware(['auth','checkblock','superadminAccess'])->prefix('admin')->gr
     Route::post('/submit-master', [App\Http\Controllers\MasterController::class, 'submitMaster'])->name('submitMaster');
     Route::get('/block-master', [App\Http\Controllers\MasterController::class, 'blockMaster'])->name('blockMaster');
     Route::get('/edit-master/{id}', [App\Http\Controllers\MasterController::class, 'editMaster'])->name('editMaster');
+    Route::get('/refill-amount', [App\Http\Controllers\MasterController::class, 'refillAmount'])->name('refillAmount');
+    Route::get('/geit-refill-amount-details', [App\Http\Controllers\MasterController::class, 'getRefillAmountDetail'])->name('getRefillAmountDetail');
+    Route::post('/submit-refill-amount', [App\Http\Controllers\MasterController::class, 'submitRefillAmount'])->name('submitRefillAmount');
 
 });
 

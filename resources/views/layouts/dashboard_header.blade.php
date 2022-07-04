@@ -127,6 +127,11 @@
                                                 <span class="pcoded-mtext">Masters</span>
                                             </a>
                                         </li>
+                                        <li class="">
+                                            <a href="{{ route('refillAmount') }}">
+                                                <span class="pcoded-mtext">Refill Amount</span>
+                                            </a>
+                                        </li>
                                         @endif
                                         @if(Auth::user()->user_type=='Master')
                                         <li class="">
@@ -134,6 +139,7 @@
                                                 <span class="pcoded-mtext">Members</span>
                                             </a>
                                         </li>
+                                        
                                         @endif
                                         <li class="">
                                             <a href="{{ route('playGame') }}">

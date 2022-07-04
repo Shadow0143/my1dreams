@@ -80,7 +80,7 @@
                                                 <p class="m-b-5">Coins</p>
                                                 <h4 class="m-b-0">
                                                     @if(!empty($coins))
-                                                    {{ $coins }}
+                                                    {{ $coins->available_amount }}
                                                     @else
                                                         0
                                                     @endif

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Alert;
+use App\Models\Coin;
+use RealRashid\SweetAlert\Facades\Alert;
 use Hash;
 use Image;
 
@@ -108,5 +109,39 @@ class MasterController extends Controller
     {
         $master = User::find($id);
         return view('masters.editMasterForm', compact('master'));
+    }
+
+
+    public function refillAmount()
+    {
+        $members = User::with('coins')->whereIn('role',['2','1'])->get();
+        // dd($members);
+        return view('masters.refillAmount',compact('members'));
+    }
+
+    public function submitRefillAmount(Request $request)
+    {
+        // dd($request->all());
+        $coins = Coin::select('available_amount')->where('refral_code',$request->refCode)->orderBy('id','desc')->first();
+        $user = User::select('id')->where('refral_code',$request->refCode)->first();
+        if(!empty($coins)){
+            $available_balance = $coins->available_amount;
+        }else{
+            $available_balance = 0;
+        }
+
+        $availabeAmount = $request->refill_amount + $available_balance;
+
+        $coin = new Coin();
+        $coin->refral_code = $request->refCode;
+        $coin->user_id = $user->id;
+        $coin->refill_amount = $request->refill_amount;
+        $coin->available_amount = $availabeAmount;
+        $coin->save();
+
+        Alert::Success('success','Re-filled Success');
+        return back();
+
+
     }
 }

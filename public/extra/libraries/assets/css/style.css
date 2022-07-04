@@ -6280,13 +6280,14 @@ table tbody .border-bottom-info td {
 }
 
 .small-game-card {
-    background-color: #fe5d70 !important;
-    color: #fff;
+    background: linear-gradient(rgb(56, 188, 253), rgb(238, 239, 247), rgb(56, 188, 253));
+    color: black;
     height: 60px;
     margin-top: 20px;
     margin-left: 13px;
     border-radius: 50%;
     padding-top: 20px;
+    font-size:20px;
 }
 
 #profile_image {
@@ -25271,6 +25272,7 @@ body.dark #styleSelector .form-control {
 *# sourceMappingURL=style.css.map */,
 *# sourceMappingURL=style.css.map */,
 #ff1a75ceMappingURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,

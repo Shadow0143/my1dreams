@@ -7,7 +7,7 @@
         </button>
     </div>
     <div class="col-12" id="1pm">
-        <input type="checkbox" name="1pmgames" id="1pmgames"> 1 PM
+        <input type="checkbox" name="1pmgames" id="1pmgames"> <b>Game Time: </b> 1 PM
         <div class="card">
             <div class="row">
                 @foreach ($game as $key => $val)
@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="col-12" id="4pm">
-        <input type="checkbox" name="4pmgames" id="4pmgames"> 4 PM
+        <input type="checkbox" name="4pmgames" id="4pmgames">    <b>Game Time: </b>  4 PM
         <div class="card">
             <div class="row">
                 @foreach ($game as $key => $val)
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="col-12" id="8pm">
-        <input type="checkbox" name="8pmgames" id="8pmgames"> 8 PM
+        <input type="checkbox" name="8pmgames" id="8pmgames"> <b>Game Time: </b>   8 PM
         <div class="card">
             <div class="row">
                 @foreach ($game as $key => $val)
@@ -155,12 +155,13 @@
             $('.1pmtimecard').css('pointerEvents','none');
             $('.4pmtimecard').css('pointerEvents','none');
             $('.8pmtimecard').css('pointerEvents','none');
-
+         
         });
 
         $('#1pmgames').click(function(e) {
             if (this.checked) {
                 $('.1pmtimecard').css('pointerEvents','auto');
+            $('.1pmtimecard').css('cursor', 'default');
 
             } else {
                 $('.1pmtimecard').css('pointerEvents','none');

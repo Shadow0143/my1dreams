@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Game;
 use App\Models\PlayGame;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Coin;
+use App\Models\User;
 
 class PlayGameController extends Controller
 {
@@ -27,6 +29,28 @@ class PlayGameController extends Controller
         $playGame->user_id = Auth::user()->id;
         $playGame->status = '1';
         $playGame->save();
+
+
+
+
+        $coins = Coin::select('available_amount')->where('refral_code',Auth::user()->refral_code)->orderBy('id','desc')->first();
+        $user = User::select('id')->where('refral_code',Auth::user()->refral_code)->first();
+        if(!empty($coins)){
+            $available_balance = $coins->available_amount;
+        }else{
+            $available_balance = 0;
+        }
+
+        $availabeAmount =  $available_balance - $request->bet_amount ;
+
+        $coin = new Coin();
+        $coin->refral_code = Auth::user()->refral_code;
+        $coin->user_id = $user->id;
+        $coin->used_amount = $request->bet_amount;
+        $coin->available_amount = $availabeAmount;
+        $coin->save();
+
+
         Alert::success('Success','Done');
         return back();
     }
