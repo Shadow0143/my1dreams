@@ -6279,6 +6279,16 @@ table tbody .border-bottom-info td {
     margin-left: 650px;
 }
 
+.small-game-card {
+    background-color: #01a9ac !important;
+    color: #fff;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 13px;
+    border-radius: 50%;
+    padding-top: 20px;
+}
+
 #profile_image {
     border-radius: 50%;
     width: 200px;

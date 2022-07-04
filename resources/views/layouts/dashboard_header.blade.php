@@ -136,15 +136,11 @@
                                         </li>
                                         @endif
                                         <li class="">
-                                            <a href="dashboard-crm.htm">
-                                                <span class="pcoded-mtext">CRM</span>
+                                            <a href="{{ route('playGame') }}">
+                                                <span class="pcoded-mtext">Play Game</span>
                                             </a>
                                         </li>
-                                        <li class="">
-                                            <a href="dashboard-analytics.htm">
-                                                <span class="pcoded-mtext">Analytics</span>
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
                                 </li>
                             </ul>
