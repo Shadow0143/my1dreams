@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function coins()
     {
-        return $this->hasMany('App\Models\Coin');
+        return $this->hasMany('App\Models\Coin')->orderBy('id','DESC');
     }
 
     public function playgame()

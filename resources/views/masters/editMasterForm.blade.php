@@ -74,8 +74,7 @@
                                                                 </label>
                                                                 <input type="password" id="password" name="password"
                                                                     placeholder="Password" autocomplete="new-password">
-                                                                    <span
-                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('full_name') }}</span>
+                                                                    <p class="text-danger" id="pass"> Please enter password first</p>
                                                             </div>
                                                         </div>
                                                         <div class="j-row">
@@ -86,8 +85,7 @@
                                                                     </label>
                                                                     <input type="password" placeholder="Confirm Password" id="confirm_password"
                                                                         name="confirm_password" autocomplete="new-password">
-                                                                        <span
-                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('confirm_password') }}</span>
+                                                                        <p class="text-danger" id="con_pass"> Confirm password not matched</p>
                                                                 </div>
                                                             </div>
                                                             <div class="j-span6 j-unit">
@@ -175,8 +173,33 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script>
+
+        $( document ).ready(function() {
+           $('#pass').hide();
+           $('#con_pass').hide();
+        });
+
         $(".numericOnly").keypress(function (e) {
             if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
+        });
+
+        $("#confirm_password").keypress(function (e) {
+            var password = $('#password').val();
+            if(password == '')
+            {
+                $('#pass').show();
+            }
+        });
+
+        $("#confirm_password").blur(function (e) {
+            var password = $('#password').val();
+            var confirmPassword = $('#confirm_password').val();
+            if(password != confirmPassword)
+            {
+                $('#con_pass').show();
+            }else{
+                $('#con_pass').hide();
+            }
         });
     </script>
 @include('layouts.dashboard_footer')

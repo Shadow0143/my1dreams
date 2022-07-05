@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Image;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
+use Intervention\Image\Facades\Image;
 
 
 
@@ -64,9 +64,10 @@ class MemberController extends Controller
                 'confirm_password' => 'required|password|min:8',
             ]);
 
-
+            $maxid = User::max('id');
+            $newmaxid = $maxid + 1 ;
             $master = new User;
-            $master->refral_code = 'MEMB' . rand(000, 999);
+            $master->refral_code = 'MEMB000' . $newmaxid;
             $master->refral_by = Auth::user()->refral_code;
             $master->name = $request->full_name;
             $master->password = Hash::make($request->password);

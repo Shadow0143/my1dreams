@@ -9,6 +9,7 @@ use App\Models\PlayGame;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Coin;
 use App\Models\User;
+use App\Models\Result;
 
 class PlayGameController extends Controller
 {
@@ -53,6 +54,12 @@ class PlayGameController extends Controller
 
         Alert::success('Success','Done');
         return back();
+    }
+
+    public function viewResult()
+    {
+        $result = Result::where('result_date',date('Y-m-d'))->orderBy('id','DESC')->get();
+        return view('viewResult',compact('result'));
     }
 
 }

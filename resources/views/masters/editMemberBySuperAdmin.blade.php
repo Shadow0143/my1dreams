@@ -28,11 +28,11 @@
                                                 @endif
                                             </div>
                                         <div >
-                                            <form action="{{ route('submitMember') }}" method="post" class="j-pro"
+                                            <form action="{{ route('submitMemberForm') }}" method="post" class="j-pro"
                                                 id="j-pro" enctype="multipart/form-data" > 
                                                 @csrf
                                                 <!-- end /.header-->
-                                                <input type="hidden" name="master_id" id="master_id" value="{{ $member->id }}">
+                                                <input type="hidden" name="member_id" id="member_id" value="{{ $member->id }}">
                                                 <div class="j-content">
                                                     <!-- start name -->
                                                     <div class="j-row">

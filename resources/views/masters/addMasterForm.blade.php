@@ -67,10 +67,8 @@
                                                                 </label>
                                                                 <input type="password" id="password" name="password"
                                                                     placeholder="Password" autocomplete="new-password"
-                                                                    id="password"
-                                                                    class=" @error('password') is-invalid @enderror">
-                                                                <span
-                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('password') }}</span>
+                                                                    id="password" required >
+                                                                
                                                             </div>
                                                         </div>
                                                         <div class="j-row">
@@ -81,10 +79,9 @@
                                                                     </label>
                                                                     <input type="password"
                                                                         placeholder="Confirm Password"
-                                                                        id="password-confirm" name="confirm_password"
-                                                                        autocomplete="new-password">
-                                                                    <span
-                                                                        style="font-weight: bold;color: #ff0000">{{ $errors->first('confirm_password') }}</span>
+                                                                        id="confirm_password" name="confirm_password"
+                                                                        autocomplete="new-password" required>
+                                                                        <p class="text-danger" id="con_pass"> Confirm password not matched</p>
                                                                 </div>
                                                             </div>
                                                             <div class="j-span6 j-unit">
@@ -195,6 +192,22 @@
 <script>
     $(".numericOnly").keypress(function(e) {
         if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
+    });
+
+
+    $( document ).ready(function() {
+        $('#con_pass').hide();
+     });
+
+     $("#confirm_password").blur(function (e) {
+        var password = $('#password').val();
+        var confirmPassword = $('#confirm_password').val();
+        if(password != confirmPassword)
+        {
+            $('#con_pass').show();
+        }else{
+            $('#con_pass').hide();
+        }
     });
 </script>
 @include('layouts.dashboard_footer')

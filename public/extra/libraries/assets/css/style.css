@@ -6274,9 +6274,7 @@ table tbody .border-bottom-info td {
 }
 
 #profile_imagediv {
-    width: 200px;
-    z-index: 2px;
-    margin-left: 650px;
+    text-align: center;
 }
 
 .small-game-card {
@@ -6287,7 +6285,7 @@ table tbody .border-bottom-info td {
     margin-left: 13px;
     border-radius: 50%;
     padding-top: 20px;
-    font-size:20px;
+    font-size: 20px;
 }
 
 #profile_image {

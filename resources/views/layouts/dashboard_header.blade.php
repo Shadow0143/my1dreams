@@ -128,8 +128,19 @@
                                             </a>
                                         </li>
                                         <li class="">
+                                            <a href="{{ route('memberBySuperAdmin') }}">
+                                                <span class="pcoded-mtext">Member</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="">
                                             <a href="{{ route('refillAmount') }}">
                                                 <span class="pcoded-mtext">Refill Amount</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{{ route('result') }}">
+                                                <span class="pcoded-mtext">Result</span>
                                             </a>
                                         </li>
                                         @endif
@@ -139,13 +150,19 @@
                                                 <span class="pcoded-mtext">Members</span>
                                             </a>
                                         </li>
-                                        
                                         @endif
+                                        @if(Auth::user()->user_type=='Master' || Auth::user()->user_type=='Member')
                                         <li class="">
                                             <a href="{{ route('playGame') }}">
                                                 <span class="pcoded-mtext">Play Game</span>
                                             </a>
                                         </li>
+                                        <li class="">
+                                            <a href="{{ route('viewResult') }}">
+                                                <span class="pcoded-mtext">Result</span>
+                                            </a>
+                                        </li>
+                                        @endif
                                         
                                     </ul>
                                 </li>
