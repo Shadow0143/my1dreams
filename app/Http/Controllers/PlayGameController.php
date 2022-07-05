@@ -30,10 +30,6 @@ class PlayGameController extends Controller
         $playGame->user_id = Auth::user()->id;
         $playGame->status = '1';
         $playGame->save();
-
-
-
-
         $coins = Coin::select('available_amount')->where('refral_code',Auth::user()->refral_code)->orderBy('id','desc')->first();
         $user = User::select('id')->where('refral_code',Auth::user()->refral_code)->first();
         if(!empty($coins)){
@@ -58,7 +54,7 @@ class PlayGameController extends Controller
 
     public function viewResult()
     {
-        $result = Result::where('result_date',date('Y-m-d'))->orderBy('id','DESC')->get();
+        $result = Result::where('result_date',date('Y-m-d'))->groupBy('game_time')->orderBy('id','DESC')->get();
         return view('viewResult',compact('result'));
     }
 

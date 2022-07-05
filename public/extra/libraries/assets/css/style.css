@@ -6273,8 +6273,56 @@ table tbody .border-bottom-info td {
     border-color: #01a9ac transparent transparent
 }
 
+blink {
+    -webkit-animation: 2s linear infinite condemned_blink_effect;
+    /* for Safari 4.0 - 8.0 */
+    animation: 2s linear infinite condemned_blink_effect;
+}
+
+
+/* for Safari 4.0 - 8.0 */
+
+@-webkit-keyframes condemned_blink_effect {
+    0% {
+        visibility: hidden;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+@keyframes condemned_blink_effect {
+    0% {
+        visibility: hidden;
+    }
+    50% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+#result-header {
+    font-size: 20px;
+    font-family: Roman;
+}
+
+blink {
+    font-size: 20px;
+    color: blue;
+}
+
 #profile_imagediv {
     text-align: center;
+}
+
+.resultdiv {
+    font-size: 50px;
+    font-family: emoji;
 }
 
 .small-game-card {
@@ -25270,6 +25318,12 @@ body.dark #styleSelector .form-control {
 *# sourceMappingURL=style.css.map */,
 *# sourceMappingURL=style.css.map */,
 #ff1a75ceMappingURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
