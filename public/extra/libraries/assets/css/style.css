@@ -15338,7 +15338,8 @@ div.dt-autofill-list div.dt-autofill-button button {
 }
 
 table.dataTable {
-    border-collapse: collapse !important
+    border-collapse: collapse !important;
+    width: 100% !important;
 }
 
 table.dataTable tbody>tr.selected,
@@ -25358,4 +25359,11 @@ body.dark #styleSelector .form-control {
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75
+#ff1a75 #ff1a75 @media (max-width: 992px) {
+    .wrapper {
+        padding: 0px;
+    }
+}
+
+
+}

@@ -1,6 +1,4 @@
-<div id="styleSelector">
 
-</div>
 <script type="text/javascript" src="{{ asset('extra/libraries\bower_components\jquery\js\jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('extra/libraries\bower_components\jquery-ui\js\jquery-ui.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('extra/libraries\bower_components\popper.js\js\popper.min.js') }}"></script>
@@ -50,6 +48,9 @@
 <script type="text/javascript" src="{{ asset('extra/libraries\assets\js\script.js') }}"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+
+
+
 
 
 </body>

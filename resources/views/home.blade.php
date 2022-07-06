@@ -124,6 +124,7 @@
             </div>
             @if (Auth::user()->user_type == 'superAdmin')
 
+            
                 <div class="col-12" id="1pm">
                     <b>Game Time: </b> 1 PM
                     <div class="card">
