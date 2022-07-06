@@ -23,6 +23,7 @@
                     <thead class="text-left">
                         <tr>
                             <th>Sl. No.</th>
+                            <th>Master Id.</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Contact Number</th>
@@ -36,6 +37,7 @@
                         @forelse($masterList as $key => $val)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
+                                <td>{{ $val->refral_code }}</td>
                                 <td>{{ ucfirst($val->name) }}</td>
                                 <td>{{ $val->email }}</td>
                                 <td>{{ $val->Phone_number }}</td>

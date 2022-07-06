@@ -1900,7 +1900,7 @@ h6.media-heading {
 }
 
 .profile-image img {
-    border: 4px solid #fff
+    border: 1px solid black
 }
 
 .user-info .media-body,
@@ -6309,6 +6309,12 @@ blink {
 #result-header {
     font-size: 20px;
     font-family: Roman;
+}
+
+.user-img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
 }
 
 blink {
@@ -24818,6 +24824,10 @@ body.dark .modal-content {
     background-color: #4e5f7d
 }
 
+.modal-header {
+    background-color: darkcyan;
+}
+
 .pcoded[layout-type="dark"] .modal-content .modal-header,
 body.dark .modal-content .modal-header {
     border-bottom: 1px solid #404E67
@@ -25318,6 +25328,11 @@ body.dark #styleSelector .form-control {
 *# sourceMappingURL=style.css.map */,
 *# sourceMappingURL=style.css.map */,
 #ff1a75ceMappingURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
+#ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,

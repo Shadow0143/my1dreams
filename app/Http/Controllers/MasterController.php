@@ -16,7 +16,7 @@ class MasterController extends Controller
 
     public function master()
     {
-        $masterList = User::select('id', 'name', 'refral_code', 'status', 'is_block', 'Phone_number', 'address', 'email', 'profile_pic')->where('user_type', 'Master')->get();
+        $masterList = User::select('id', 'name', 'refral_code', 'status', 'is_block', 'Phone_number', 'address', 'email', 'profile_pic')->where('user_type', 'Master')->orderBy('id','DESC')->get();
         return view('masters.master', compact('masterList'));
     }
 
@@ -116,7 +116,7 @@ class MasterController extends Controller
 
     public function refillAmount()
     {
-        $members = User::with('coins')->whereIn('role',['2','1'])->get();
+        $members = User::with('coins')->whereIn('role',['2','1'])->orderBy('id','DESC')->get();
         return view('masters.refillAmount',compact('members'));
     }
 
@@ -148,7 +148,7 @@ class MasterController extends Controller
 
     public function memberBySuperAdmin()
     {
-        $memberList = User::where('user_type','Member')->get();
+        $memberList = User::where('user_type','Member')->orderBy('id','DESC')->get();
         return view('masters.memberBySuperAdmin',compact('memberList'));
     }
 

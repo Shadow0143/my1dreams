@@ -36,7 +36,7 @@
                                                                 <input type="text" id="first_name" name="full_name"
                                                                     placeholder="Full name" autocomplete="new-password">
                                                                     <span
-                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('full_name') }}</span>
+                                                                    class="text-danger mt-2">{{ $errors->first('full_name') }}</span>
                                                             </div>
                                                         </div>
                                                         <div class="j-row">
@@ -48,7 +48,7 @@
                                                                     <input type="email" placeholder="Email" id="email"
                                                                         name="email" autocomplete="new-password">
                                                                         <span
-                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('email') }}</span>
+                                                                        class="text-danger mt-2">{{ $errors->first('email') }}</span>
                                                                 </div>
                                                             </div>
                                                             <div class="j-span6 j-unit">
@@ -111,7 +111,7 @@
                                                                 <span class="j-tooltip j-tooltip-right-top">Your contact
                                                                     phone number</span>
                                                                     <span
-                                                                    style="font-weight: bold;color: #ff0000">{{ $errors->first('phone') }}</span>
+                                                                    class="text-danger mt-2">{{ $errors->first('phone') }}</span>
                                                             </div>
                                                         </div>
                                                     </div>

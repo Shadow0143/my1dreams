@@ -6,6 +6,7 @@ use App\Http\Controllers\MasterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CustomController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProfileController;
 Use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,10 @@ Route::get('/no-access', [App\Http\Controllers\CustomController::class, 'noAcces
 Route::get('/play-game', [App\Http\Controllers\PlayGameController::class, 'playGame'])->name('playGame');
 Route::post('/add-amount', [App\Http\Controllers\PlayGameController::class, 'addAmount'])->name('addAmount');
 Route::get('/view-result', [App\Http\Controllers\PlayGameController::class, 'viewResult'])->name('viewResult');
+
+Route::get('/view-profile/{id}', [App\Http\Controllers\ProfileController::class, 'viewProfile'])->name('viewProfile');
+Route::post('/save-profile-image', [App\Http\Controllers\ProfileController::class, 'saveProfileImage'])->name('saveProfileImage');
+Route::post('/save-user-details', [App\Http\Controllers\ProfileController::class, 'saveUserDetails'])->name('saveUserDetails');
 
 
 
