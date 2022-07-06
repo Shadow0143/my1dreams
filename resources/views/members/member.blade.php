@@ -67,9 +67,9 @@
                                         id="editMaster"> <i class="fa fa-pencil-square-o icon_size" aria-hidden="true"
                                             title=" Edit"></i></a>
 
-                                    <a href="javaScript:void(0);" class="text-danger deleteMember" id="deleteMember"
+                                    {{--  <a href="javaScript:void(0);" class="text-danger deleteMember" id="deleteMember"
                                         data-id="{{ $val->id }}"> <i class="fa fa-trash icon_size"
-                                            aria-hidden="true" title=" Delete"></i></a>
+                                            aria-hidden="true" title=" Delete"></i></a>  --}}
 
                                 </td>
                             </tr>

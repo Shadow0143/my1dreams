@@ -38,7 +38,7 @@
                     <div class="row">
 
                         <!-- statustic-card start -->
-                        @if (Auth::user()->user_type == 'superAdmin' || Auth::user()->user_type == 'Master')
+                        @if (Auth::user()->user_type == 'superAdmin')
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-c-yellow text-white">
                                     <div class="card-block">
@@ -54,21 +54,24 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-c-green text-white">
-                                    <div class="card-block">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <p class="m-b-5">Total Members</p>
-                                                <h4 class="m-b-0">{{ $numberOfMember }}</h4>
-                                            </div>
-                                            <div class="col col-auto text-right">
-                                                <i class="feather icon-user f-50 text-c-green"></i>
-                                            </div>
+                          
+                        @endif
+                        @if (Auth::user()->user_type == 'Master' )
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card bg-c-green text-white">
+                                <div class="card-block">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <p class="m-b-5">Total Members</p>
+                                            <h4 class="m-b-0">{{ $numberOfMember }}</h4>
+                                        </div>
+                                        <div class="col col-auto text-right">
+                                            <i class="feather icon-user f-50 text-c-green"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         @endif
 
                         @if (Auth::user()->user_type == 'Master' || Auth::user()->user_type == 'Member')
@@ -237,9 +240,7 @@
                 </div>
             @endif
 
-            <div id="styleSelector">
-
-            </div>
+            
         </div>
     </div>
 </div>

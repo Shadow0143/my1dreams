@@ -19,7 +19,7 @@
         </div>
         <div class="card-block">
             <div class="table-responsive">
-                <table id="issue-list-table" class="table dt-responsive width-100">
+                <table id="memberTable" class="table dt-responsive">
                     <thead class="text-left">
                         <tr>
                             <th>Sl. No.</th>
@@ -81,6 +81,10 @@ integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiq
 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
+    $(document).ready(function () {
+        $('#memberTable').DataTable();
+    });
+
     $(document).on('click', '.block_unblock', function(e) {
         e.preventDefault();
         var master_id = $(this).data('id');
