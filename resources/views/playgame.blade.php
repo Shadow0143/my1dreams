@@ -5,7 +5,9 @@
         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#historyModal">
             View History
         </button>
+
     </div>
+    <input type="hidden" name="available_amount" id="available_amount" value="{{ $coins->available_amount }}">
     <div class="col-12" id="1pm">
         <input type="checkbox" name="1pmgames" id="1pmgames"> <b>Game Time: </b> 1 PM
         <div class="card">
@@ -87,6 +89,7 @@
                         <label for="amount">Amount</label>
                         <input type="text" name="bet_amount" id="bet_amount" class="form-control numericOnly"
                             required autocomplete="new-amount">
+                            <p class="text-danger" id="less_coin">Sorry you donot have enough coins.</p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -139,6 +142,23 @@
 </div>
 
 
+<div class="modal fade" id="nocoinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="col-12 text-left">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="{{ asset('images/noaccess.jpeg') }}" alt="no coin">
+                <p class="text-danger">Sorry you dont have enough coins.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -156,6 +176,8 @@
         $('.1pmtimecard').css('pointerEvents', 'none');
         $('.4pmtimecard').css('pointerEvents', 'none');
         $('.8pmtimecard').css('pointerEvents', 'none');
+        $('#less_coin').hide();
+        
 
     });
 
@@ -193,6 +215,18 @@
     $(".numericOnly").keypress(function(e) {
         if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
     });
+
+    $(".numericOnly").blur(function(e) {
+        var  entervalue = $('.numericOnly').val();
+        var  available_amount = $('#available_amount').val();
+        if(available_amount < entervalue  ){
+            $('.numericOnly').val('');
+            $('#less_coin').show();
+
+        }
+    });
+
+
 </script>
 
 
@@ -234,17 +268,56 @@
 <script>
     $(document).ready(function(e) {
         var current = new Date();
-        if (current.getHours() > 12) {
+        if (current.getHours() >= 12) {
             $("#1pmgames").attr("disabled", true);
 
         }
-        if(current.getHours() > 15) {
+        if(current.getHours() >= 15) {
             $("#4pmgames").attr("disabled", true);
         }
-        if(current.getHours() > 19) {
+        if(current.getHours() >= 19) {
             $("#8pmgames").attr("disabled", true);
         }
     });
+
+        $("#8pmgames").on("mouseover", function() {
+            var available_amount = $('#available_amount').val();
+            if(available_amount ==0){
+                $("#1pmgames").attr("disabled", true);
+                $("#4pmgames").attr("disabled", true);
+                $("#8pmgames").attr("disabled", true);
+               $('#nocoinModal').modal('show');
+            }
+        });
+        $("#4pmgames").on("mouseover", function() {
+            var available_amount = $('#available_amount').val();
+            if(available_amount ==0){
+                $("#1pmgames").attr("disabled", true);
+                $("#4pmgames").attr("disabled", true);
+                $("#8pmgames").attr("disabled", true);
+                $('#nocoinModal').modal('show');
+
+            }
+        });
+        $("#1pmgames").on("mouseover", function() {
+            var available_amount = $('#available_amount').val();
+            if(available_amount ==0){
+                $("#1pmgames").attr("disabled", true);
+                $("#4pmgames").attr("disabled", true);
+                $("#8pmgames").attr("disabled", true);
+                $('#nocoinModal').modal('show');
+
+            }
+        });
+   
+
+
+
+
+
+
+  
+
 </script>
 
 

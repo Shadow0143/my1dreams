@@ -1,7 +1,7 @@
 @include('layouts.dashboard_header')
 <div class="wrapper">
     <div class="col-12 text-center" id="result-header">
-        Result For the date: 
+
         <blink> Result For the date:   {{ date('d-m-Y') }} </blink>
 
        

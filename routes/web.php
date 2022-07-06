@@ -42,6 +42,7 @@ Route::middleware(['auth','checkblock','superadminAccess'])->prefix('admin')->gr
     Route::get('/result', [App\Http\Controllers\MasterController::class, 'result'])->name('result');
     Route::get('/result-form', [App\Http\Controllers\MasterController::class, 'resultForm'])->name('resultForm');
     Route::post('/subimt-result', [App\Http\Controllers\MasterController::class, 'submitResult'])->name('submitResult');
+    Route::get('/tool-tip', [App\Http\Controllers\HomeController::class, 'toolTip'])->name('toolTip');
 
 
 });

@@ -16,8 +16,9 @@ class PlayGameController extends Controller
     public function playGame()
     {
         $game = Game::all();
+        $coins = Coin::select('available_amount')->where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->first();
         $play_game = PlayGame::where('user_id',Auth::user()->id)->whereDate('created_at',date('Y-m-d'))->orderBy('id','desc')->get();
-        return view('playgame',compact('game','play_game'));
+        return view('playgame',compact('game','play_game','coins'));
     }
 
     public function addAmount(Request $request)
