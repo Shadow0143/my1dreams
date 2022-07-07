@@ -6342,6 +6342,7 @@ blink {
     border-radius: 50%;
     padding-top: 20px;
     font-size: 20px;
+    width: 60px;
 }
 
 #profile_image {
@@ -25322,70 +25323,59 @@ body.dark #styleSelector .form-control {
     color: #404E67
 }
 
+.card_area_btn li {
+    float: left;
+}
+
+@media (min-width: 900px) {
+    #mobile-collapse {
+        display: none
+    }
+}
+
 @media (max-width: 992px) {
     .wrapper {
         padding: 0px;
     }
-    #dashboard_main{
+    #dashboard_main {
         padding: 0px;
     }
-
 }
 
-
-/*# sourceMappingURL=style.css.map */
-
-,
-,
-*# sourceMappingURL=style.css.map */,
-*# sourceMappingURL=style.css.map */,
-*# sourceMappingURL=style.css.map */,
-#ff1a75ceMappingURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75
+@media (max-width: 600px) {
+    .small-game-card {
+        background: linear-gradient(rgb(56, 188, 253), rgb(238, 239, 247), rgb(56, 188, 253));
+        color: black;
+        height: 60px;
+        margin-top: 20px;
+        margin-left: 25px;
+        border-radius: 50%;
+        padding-top: 20px;
+        font-size: 20px;
+        width: 60px;
+        margin-bottom: 10px;
+    }
 }
 
+@media (max-width: 542px) {
+    .small-game-card {
+        margin-left: 42px;
+    }
 }
 
+@media (max-width: 442px) {
+    .small-game-card {
+        margin-left: 8px;
+    }
 }
 
+@media (max-width: 280px) {
+    .small-game-card {
+        margin-left: 3px;
+        width: 46px;
+        height: 46px;
+    }
 }
 
-}
-
-}
-
-}
-
-}
 
 }

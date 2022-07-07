@@ -42,7 +42,6 @@ Route::middleware(['auth','checkblock','superadminAccess'])->prefix('admin')->gr
     Route::get('/result', [App\Http\Controllers\MasterController::class, 'result'])->name('result');
     Route::get('/result-form', [App\Http\Controllers\MasterController::class, 'resultForm'])->name('resultForm');
     Route::post('/subimt-result', [App\Http\Controllers\MasterController::class, 'submitResult'])->name('submitResult');
-    Route::get('/tool-tip', [App\Http\Controllers\HomeController::class, 'toolTip'])->name('toolTip');
 
 
 });
@@ -69,6 +68,7 @@ Route::get('/view-result', [App\Http\Controllers\PlayGameController::class, 'vie
 Route::get('/view-profile/{id}', [App\Http\Controllers\ProfileController::class, 'viewProfile'])->name('viewProfile');
 Route::post('/save-profile-image', [App\Http\Controllers\ProfileController::class, 'saveProfileImage'])->name('saveProfileImage');
 Route::post('/save-user-details', [App\Http\Controllers\ProfileController::class, 'saveUserDetails'])->name('saveUserDetails');
+Route::get('/tool-tip', [App\Http\Controllers\HomeController::class, 'toolTip'])->name('toolTip');
 
 
 

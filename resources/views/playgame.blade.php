@@ -22,11 +22,13 @@
         @endif
     </div>
     <div class="col-12" id="1pm">
-        <input type="checkbox" name="1pmgames" id="1pmgames"> <b>Game Time: </b> 1 PM
+        <div class="mb-3">
+            <input type="checkbox" name="1pmgames" id="1pmgames"> <b>Game Time: </b> 1 PM
+        </div>
         <div class="card">
             <div class="row">
                 @foreach ($game as $key => $val)
-                    <div class="col-1 text-center">
+                    <div class="col-lg-1 col-md-2  col-sm-2  col-4  col-xs-4  text-center">
                         <a href="javascript:void(0);" class="1pmtimecard">
                             <input type="text" name="1pmsubmittime" id="submittime" value="1pm"
                                 class="1pmsubmittime" style="display: none">
@@ -40,11 +42,13 @@
         </div>
     </div>
     <div class="col-12" id="4pm">
-        <input type="checkbox" name="4pmgames" id="4pmgames"> <b>Game Time: </b> 4 PM
+        <div class="mb-3">
+            <input type="checkbox" name="4pmgames" id="4pmgames"> <b>Game Time: </b> 4 PM
+        </div>
         <div class="card">
             <div class="row">
                 @foreach ($game as $key => $val)
-                    <div class="col-1 text-center">
+                    <div class="col-lg-1 col-md-2  col-sm-2  col-4  col-xs-4  text-center">
                         <a href="javascript:void(0);" class="4pmtimecard" data-time="4pm"
                             data-gameno="{{ $val->id }}">
                             <input type="text" name="4pmsubmittime" id="submittime" value="4pm"
@@ -59,11 +63,13 @@
         </div>
     </div>
     <div class="col-12" id="8pm">
-        <input type="checkbox" name="8pmgames" id="8pmgames"> <b>Game Time: </b> 8 PM
+        <div class="mb-3">
+            <input type="checkbox" name="8pmgames" id="8pmgames"> <b>Game Time: </b> 8 PM
+        </div>
         <div class="card">
             <div class="row">
                 @foreach ($game as $key => $val)
-                    <div class="col-1 text-center">
+                    <div class="col-lg-1 col-md-2  col-sm-2  col-4  col-xs-4  text-center">
                         <a href="javascript:void(0);" class="8pmtimecard" data-time="8pm"
                             data-gameno="{{ $val->id }}">
                             <input type="text" name="8pmsubmittime" id="submittime" value="8pm"
@@ -230,11 +236,12 @@
     $(".numericOnly").blur(function(e) {
         var  entervalue = $('.numericOnly').val();
         var  available_amount = $('#available_amount').val();
+        //alert(entervalue);
+        //alert(available_amount);
         
-        if(available_amount > entervalue  ){
+        if( parseInt(entervalue)  > parseInt(available_amount) ){
             $('.numericOnly').val('');
             $('#less_coin').show();
-
         }
     });
 

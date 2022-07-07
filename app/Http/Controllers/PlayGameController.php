@@ -17,13 +17,13 @@ class PlayGameController extends Controller
     {
         $game = Game::all();
         $coins = Coin::select('available_amount')->where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->first();
-        $play_game = PlayGame::where('user_id',Auth::user()->id)->whereDate('created_at',date('Y-m-d'))->orderBy('id','desc')->get();
-        return view('playgame',compact('game','play_game','coins'));
+        $play_game = PlayGame::where('user_id', Auth::user()->id)->whereDate('created_at', date('Y-m-d'))->orderBy('id', 'desc')->get();
+        return view('playgame', compact('game', 'play_game', 'coins'));
     }
 
     public function addAmount(Request $request)
     {
-        $playGame = New PlayGame();
+        $playGame = new PlayGame();
         $playGame->game_no = $request->game_no;
         $playGame->game_time = $request->time;
         $playGame->refral_code = Auth::user()->refral_code;
@@ -31,15 +31,15 @@ class PlayGameController extends Controller
         $playGame->user_id = Auth::user()->id;
         $playGame->status = '1';
         $playGame->save();
-        $coins = Coin::select('available_amount')->where('refral_code',Auth::user()->refral_code)->orderBy('id','desc')->first();
-        $user = User::select('id')->where('refral_code',Auth::user()->refral_code)->first();
-        if(!empty($coins)){
+        $coins = Coin::select('available_amount')->where('refral_code', Auth::user()->refral_code)->orderBy('id', 'desc')->first();
+        $user = User::select('id')->where('refral_code', Auth::user()->refral_code)->first();
+        if (!empty($coins)) {
             $available_balance = $coins->available_amount;
-        }else{
+        } else {
             $available_balance = 0;
         }
 
-        $availabeAmount =  $available_balance - $request->bet_amount ;
+        $availabeAmount =  $available_balance - $request->bet_amount;
 
         $coin = new Coin();
         $coin->refral_code = Auth::user()->refral_code;
@@ -49,14 +49,16 @@ class PlayGameController extends Controller
         $coin->save();
 
 
-        Alert::success('Success','Done');
+        Alert::success('Success', 'Done');
         return back();
     }
 
     public function viewResult()
     {
-        $result = Result::where('result_date',date('Y-m-d'))->groupBy('game_time')->orderBy('id','DESC')->get();
-        return view('viewResult',compact('result'));
+        $result = Result::where('result_date', date('Y-m-d'))->first();
+        $result1pm = Result::where('result_date', date('Y-m-d'))->where('game_time','1:00')->first();
+        $result4pm = Result::where('result_date', date('Y-m-d'))->where('game_time','4:00')->first();
+        $result8pm = Result::where('result_date', date('Y-m-d'))->where('game_time','8:00')->first();
+        return view('viewResult', compact('result','result1pm','result4pm','result8pm'));
     }
-
 }

@@ -69,24 +69,23 @@
                                     </div>
                                 </div>
                             </div>
-                          
                         @endif
-                        @if (Auth::user()->user_type == 'Master' )
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-c-green text-white">
-                                <div class="card-block">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <p class="m-b-5">Total Members</p>
-                                            <h4 class="m-b-0">{{ $numberOfMember }}</h4>
-                                        </div>
-                                        <div class="col col-auto text-right">
-                                            <i class="feather icon-user f-50 text-c-green"></i>
+                        @if (Auth::user()->user_type == 'Master')
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-c-green text-white">
+                                    <div class="card-block">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <p class="m-b-5">Total Members</p>
+                                                <h4 class="m-b-0">{{ $numberOfMember }}</h4>
+                                            </div>
+                                            <div class="col col-auto text-right">
+                                                <i class="feather icon-user f-50 text-c-green"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         @endif
 
                         @if (Auth::user()->user_type == 'Master' || Auth::user()->user_type == 'Member')
@@ -113,11 +112,33 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
+                                <div class="card bg-c-green text-white">
+                                    <div class="card-block">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <p class="m-b-5">Todays Invest Amount</p>
+                                                <h4 class="m-b-0">
+                                                    @if (!empty($todayPlayGame))
+                                                        {{ $todayPlayGame }}
+                                                    @else
+                                                        0
+                                                    @endif
+                                                </h4>
+                                            </div>
+                                            <div class="col col-auto text-right">
+                                                <i class="feather icon-shopping-cart f-50 text-c-blue"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6">
                                 <div class="card bg-c-blue text-white">
                                     <div class="card-block">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <p class="m-b-5">Invest Amount</p>
+                                                <p class="m-b-5">Total Invest Amount</p>
                                                 <h4 class="m-b-0">
                                                     @if (!empty($playGame))
                                                         {{ $playGame }}
@@ -133,90 +154,35 @@
                                     </div>
                                 </div>
                             </div>
+
                         @endif
                         <!-- statustic-card start -->
-
-
                     </div>
                 </div>
             </div>
-            @if (Auth::user()->user_type == 'superAdmin')
-                @foreach ($todayBet as $bk => $bv)
-                        <div class="col-12" id="{{ $bv['item'] }}">
-                            <b>Game Time: </b> {{ $bv['item'] }}
-                            <div class="card">
-                                <div class="row">
-                                    @foreach ($bv['details'] as $dk => $dv)
-                                        <div class="col-1 text-center">
-                                            <a href="javascript:void(0);" class="{{ $bv['item'] }}timecard" data-time="{{ $bv['item']}}"
-                                                onclick="tooltip('{{ $dv['game_no'] }}','{{ $dv['game_time'] }}')">
-                                                    <div class="card  small-game-card ">{{ $dv['game_no'] }}</div>
-                                                    ₹{{ $dv['amount'] }}
-                                            </a>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-            @endif
 
-            @if (Auth::user()->user_type == 'Master' || Auth::user()->user_type == 'Member')
-
-                <div class="col-12" id="1pm">
-                    <b>Game Time: </b> 1 PM
+            @foreach ($todayBet as $bk => $bv)
+                <div class="col-12" id="{{ $bv['item'] }}">
+                    <div class="mb-3">
+                        <b >Game Time: </b> {{ strtoupper($bv['item']) }}
+                    </div>
                     <div class="card">
                         <div class="row">
-                            @foreach ($mytodayBet as $key => $value)
-                                <div class="col-1 text-center">
-                                    <a href="javascript:void(0);" class="1pmtimecard">
-                                        @if ($value->game_time == '1pm')
-                                            <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            ₹{{ $value->amount }}
-                                        @endif
+                            @foreach ($bv['details'] as $dk => $dv)
+                                <div class="col-lg-1 col-md-2  col-sm-2  col-4  col-xs-4  text-center">
+                                    <a href="javascript:void(0);" class="{{ $bv['item'] }}timecard"
+                                        data-time="{{ $bv['item'] }}"
+                                        onclick="tooltip('{{ $dv['game_no'] }}','{{ $dv['game_time'] }}')">
+                                        <div class="card  small-game-card ">{{ $dv['game_no'] }}</div>
+                                        ₹{{ $dv['amount'] }}
                                     </a>
                                 </div>
                             @endforeach
                         </div>
                     </div>
                 </div>
-                <div class="col-12" id="4pm">
-                    <b>Game Time: </b> 4 PM
-                    <div class="card">
-                        <div class="row">
-                            @foreach ($mytodayBet as $key => $value)
-                                <div class="col-1 text-center">
-                                    <a href="javascript:void(0);" class="4pmtimecard" data-time="4pm">
-                                        @if ($value->game_time == '4pm')
-                                            <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            ₹{{ $value->amount }}
-                                        @endif
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12" id="8pm">
-                    <b>Game Time: </b> 8 PM
-                    <div class="card">
-                        <div class="row">
-                            @foreach ($mytodayBet as $key => $value)
-                                <div class="col-1 text-center">
-                                    <a href="javascript:void(0);" class="8pmtimecard" data-time="8pm">
-                                        @if ($value->game_time == '8pm')
-                                            <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            ₹{{ $value->amount }}
-                                        @endif
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            @endif
+            @endforeach
 
-            
         </div>
     </div>
 </div>

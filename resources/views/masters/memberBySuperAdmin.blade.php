@@ -19,7 +19,7 @@
         </div>
         <div class="card-block">
             <div class="table-responsive">
-                <table id="memberTable" class="table dt-responsive width-100">
+                <table id="memberTable" class="table td-responsive width-100">
                     <thead class="text-left">
                         <tr>
                             <th>Sl. No.</th>
