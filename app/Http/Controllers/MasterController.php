@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Coin;
+use App\Models\PlayGame;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
@@ -117,6 +118,11 @@ class MasterController extends Controller
     public function refillAmount()
     {
         $members = User::with('coins')->whereIn('role',['2','1'])->orderBy('id','DESC')->get();
+        foreach($members as $val)
+        {
+            $playgame = PlayGame::where('user_id',$val->id)->sum('amount');
+            $val->usedCoin = $playgame;
+        }
         return view('masters.refillAmount',compact('members'));
     }
 

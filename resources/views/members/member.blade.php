@@ -94,7 +94,12 @@
 <script>
 
     $(document).ready(function () {
-        $('#memberTable').DataTable();
+        $('#memberTable').DataTable({
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false });
     });
 
 

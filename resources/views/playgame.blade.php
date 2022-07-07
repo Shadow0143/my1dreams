@@ -7,7 +7,20 @@
         </button>
 
     </div>
-    <input type="hidden" name="available_amount" id="available_amount" value="{{ $coins->available_amount }}">
+    <div class="col-12 mb-5">
+        @if(!empty($coins->available_amount))
+        <input type="hidden" name="available_amount" id="available_amount" value="{{ $coins->available_amount }}">
+        <h3>
+            Available Coin :  <span class="text-primary"> {{ $coins->available_amount }}</span> 
+        </h3>
+        @else
+        <input type="hidden" name="available_amount" id="available_amount" value="0">
+        <h3>    
+            Available Coin :   <span class="text-danger">0</span>
+        </h3>
+
+        @endif
+    </div>
     <div class="col-12" id="1pm">
         <input type="checkbox" name="1pmgames" id="1pmgames"> <b>Game Time: </b> 1 PM
         <div class="card">
@@ -153,7 +166,7 @@
             </div>
             <div class="modal-body text-center">
                 <img src="{{ asset('images/noaccess.jpeg') }}" alt="no coin">
-                <p class="text-danger">Sorry you dont have enough coins.</p>
+                <p class="text-danger">Sorry you don't have enough coins.</p>
             </div>
 
         </div>
@@ -217,7 +230,8 @@
     $(".numericOnly").blur(function(e) {
         var  entervalue = $('.numericOnly').val();
         var  available_amount = $('#available_amount').val();
-        if(available_amount < entervalue  ){
+        
+        if(available_amount > entervalue  ){
             $('.numericOnly').val('');
             $('#less_coin').show();
 
@@ -273,7 +287,7 @@
         if(current.getHours() >= 15) {
             $("#4pmgames").attr("disabled", true);
         }
-        if(current.getHours() >= 19) {
+        if(current.getHours() >= 21) {
             $("#8pmgames").attr("disabled", true);
         }
     });

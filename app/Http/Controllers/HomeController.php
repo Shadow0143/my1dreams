@@ -33,7 +33,7 @@ class HomeController extends Controller
         $numberOfMember = User::where('user_type', 'Member')->count();
         $coins = Coin::select('available_amount')->where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->first();
         $playGame = PlayGame::select('amount')->where('user_id', Auth::user()->id)->sum('amount');
-        $todayBet = PlayGame::select('game_no', 'game_time', 'user_id', DB::raw('SUM(amount) as amount'))->groupBy('game_time')->groupBy('game_no')->whereDate('created_at', date('Y-m-d'))->orderBy('game_no', 'ASC')->get();
+        $todayBet = PlayGame::select('game_no', 'game_time', 'user_id', DB::raw('SUM(amount) as amount'))->groupBy('game_time')->groupBy('game_no')->whereDate('created_at','2022-07-04')->orderBy('game_no', 'ASC')->get();
         $mytodayBet = PlayGame::select('game_no', 'user_id', 'game_time', DB::raw('SUM(amount) as amount'))->groupBy('game_time')->groupBy('game_no')->whereDate('created_at', date('Y-m-d'))->where('user_id', Auth::user()->id)->orderBy('game_no', 'ASC')->get();
 
         return view('home', compact('numberOfMaster', 'numberOfMember', 'coins', 'playGame', 'todayBet', 'mytodayBet'));

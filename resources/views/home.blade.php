@@ -54,6 +54,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-c-green text-white">
+                                    <div class="card-block">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <p class="m-b-5">Total Members</p>
+                                                <h4 class="m-b-0">{{ $numberOfMember }}</h4>
+                                            </div>
+                                            <div class="col col-auto text-right">
+                                                <i class="feather icon-user f-50 text-c-green"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                           
                         @endif
                         @if (Auth::user()->user_type == 'Master' )
@@ -135,11 +150,11 @@
                             @foreach ($todayBet as $key => $value)
                                 <div class="col-1 text-center">
                                     <a href="javascript:void(0);" class="1pmtimecard"
-                                        onmouseover="tooltip('{{ $value->game_no }}','{{ $value->game_time }}')"
+                                    onclick="tooltip('{{ $value->game_no }}','{{ $value->game_time }}')"
                                         data-toggle="tooltip" title="">
                                         @if ($value->game_time == '1pm')
                                             <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            amount: {{ $value->amount }}
+                                            ₹{{ $value->amount }}
                                         @endif
                                     </a>
                                 </div>
@@ -154,10 +169,10 @@
                             @foreach ($todayBet as $key => $value)
                                 <div class="col-1 text-center">
                                     <a href="javascript:void(0);" class="4pmtimecard" data-time="4pm"
-                                        onmouseover="tooltip('{{ $value->game_no }}','{{ $value->game_time }}')">
+                                        onclick="tooltip('{{ $value->game_no }}','{{ $value->game_time }}')">
                                         @if ($value->game_time == '4pm')
                                             <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            amount: {{ $value->amount }}
+                                            ₹{{ $value->amount }}
                                         @endif
                                     </a>
                                 </div>
@@ -172,10 +187,10 @@
                             @foreach ($todayBet as $key => $value)
                                 <div class="col-1 text-center">
                                     <a href="javascript:void(0);" class="8pmtimecard" data-time="8pm"
-                                        onmouseover="tooltip('{{ $value->game_no }}','{{ $value->game_time }}')">
+                                        onclick="tooltip('{{ $value->game_no }}','{{ $value->game_time }}')">
                                         @if ($value->game_time == '8pm')
                                             <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            amount: {{ $value->amount }}
+                                            ₹{{ $value->amount }}
                                         @endif
                                     </a>
                                 </div>
@@ -196,7 +211,7 @@
                                     <a href="javascript:void(0);" class="1pmtimecard">
                                         @if ($value->game_time == '1pm')
                                             <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            amount: {{ $value->amount }}
+                                            ₹{{ $value->amount }}
                                         @endif
                                     </a>
                                 </div>
@@ -213,7 +228,7 @@
                                     <a href="javascript:void(0);" class="4pmtimecard" data-time="4pm">
                                         @if ($value->game_time == '4pm')
                                             <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            amount: {{ $value->amount }}
+                                            ₹{{ $value->amount }}
                                         @endif
                                     </a>
                                 </div>
@@ -230,7 +245,7 @@
                                     <a href="javascript:void(0);" class="8pmtimecard" data-time="8pm">
                                         @if ($value->game_time == '8pm')
                                             <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            amount: {{ $value->amount }}
+                                            ₹{{ $value->amount }}
                                         @endif
                                     </a>
                                 </div>

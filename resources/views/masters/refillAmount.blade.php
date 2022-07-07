@@ -15,7 +15,7 @@
         </div>
         <div class="card-block">
             <div class="table-responsive">
-                <table id="issue-list-table" class="table dt-responsive width-100">
+                <table id="memberTable" class="table dt-responsive width-100">
                     <thead class="text-left">
                         <tr>
                             <th>Sl. No.</th>
@@ -23,8 +23,8 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Contact Number</th>
-                            <th>Address</th>
-                            <th>Coin </th>
+                            <th>Available Coin </th>
+                            <th>Used Coin </th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -36,7 +36,6 @@
                                 <td>{{ $val->name }}</td>
                                 <td>{{ $val->email }}</td>
                                 <td>{{ $val->Phone_number }} </td>
-                                <td>{{ $val->address }}</td>
                                 <td>
                                     @if (count($val->coins) > 0)
                                        <strong>  {{ $val->coins[0]->available_amount }} </strong>
@@ -44,6 +43,13 @@
                                         0
                                     @endif
 
+                                </td>
+                                <td>
+                                    @if($val->usedCoin == 0)
+                                        <span class="text-danger">0</span>
+                                        @else
+                                        <span class="text-primary"><strong>{{ $val->usedCoin}}</strong></span>
+                                        @endif
                                 </td>
                                 <td>
                                     <a href="javaScript:void(0);" class="btn btn-sm btn-danger user_id"
@@ -107,6 +113,15 @@
 
 
 <script>
+    $(document).ready(function () {
+        $('#memberTable').DataTable({
+            "bPaginate": true,
+            "bLengthChange": false,
+            "bFilter": true,
+            "bInfo": false,
+            "bAutoWidth": false });
+    });
+
     $(".numericOnly").keypress(function(e) {
         if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
     });

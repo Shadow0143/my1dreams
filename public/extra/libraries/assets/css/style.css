@@ -25322,6 +25322,12 @@ body.dark #styleSelector .form-control {
     color: #404E67
 }
 
+@media (max-width: 992px) {
+    .wrapper {
+        padding: 0px;
+    }
+}
+
 
 /*# sourceMappingURL=style.css.map */
 
@@ -25361,12 +25367,10 @@ body.dark #styleSelector .form-control {
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
 #ff1a75 #ff1a75gURL=style.css.map */,
-#ff1a75 #ff1a75 @media (max-width: 992px) {
-    .wrapper {
-        padding: 0px;
-    }
+#ff1a75 #ff1a75
 }
 
+}
 
 }
 
