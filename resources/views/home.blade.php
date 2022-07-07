@@ -141,63 +141,24 @@
                 </div>
             </div>
             @if (Auth::user()->user_type == 'superAdmin')
-
-            
-                <div class="col-12" id="1pm">
-                    <b>Game Time: </b> 1 PM
-                    <div class="card">
-                        <div class="row">
-                            @foreach ($todayBet as $key => $value)
-                                <div class="col-1 text-center">
-                                    <a href="javascript:void(0);" class="1pmtimecard"
-                                    onclick="tooltip('{{ $value->game_no }}','{{ $value->game_time }}')"
-                                        data-toggle="tooltip" title="">
-                                        @if ($value->game_time == '1pm')
-                                            <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            ₹{{ $value->amount }}
-                                        @endif
-                                    </a>
+                @foreach ($todayBet as $bk => $bv)
+                        <div class="col-12" id="{{ $bv['item'] }}">
+                            <b>Game Time: </b> {{ $bv['item'] }}
+                            <div class="card">
+                                <div class="row">
+                                    @foreach ($bv['details'] as $dk => $dv)
+                                        <div class="col-1 text-center">
+                                            <a href="javascript:void(0);" class="{{ $bv['item'] }}timecard" data-time="{{ $bv['item']}}"
+                                                onclick="tooltip('{{ $dv['game_no'] }}','{{ $dv['game_time'] }}')">
+                                                    <div class="card  small-game-card ">{{ $dv['game_no'] }}</div>
+                                                    ₹{{ $dv['amount'] }}
+                                            </a>
+                                        </div>
+                                    @endforeach
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-12" id="4pm">
-                    <b>Game Time: </b> 4 PM
-                    <div class="card">
-                        <div class="row">
-                            @foreach ($todayBet as $key => $value)
-                                <div class="col-1 text-center">
-                                    <a href="javascript:void(0);" class="4pmtimecard" data-time="4pm"
-                                        onclick="tooltip('{{ $value->game_no }}','{{ $value->game_time }}')">
-                                        @if ($value->game_time == '4pm')
-                                            <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            ₹{{ $value->amount }}
-                                        @endif
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12" id="8pm">
-                    <b>Game Time: </b> 8 PM
-                    <div class="card">
-                        <div class="row">
-                            @foreach ($todayBet as $key => $value)
-                                <div class="col-1 text-center">
-                                    <a href="javascript:void(0);" class="8pmtimecard" data-time="8pm"
-                                        onclick="tooltip('{{ $value->game_no }}','{{ $value->game_time }}')">
-                                        @if ($value->game_time == '8pm')
-                                            <div class="card  small-game-card ">{{ $value->game_no }}</div>
-                                            ₹{{ $value->amount }}
-                                        @endif
-                                    </a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
             @endif
 
             @if (Auth::user()->user_type == 'Master' || Auth::user()->user_type == 'Member')

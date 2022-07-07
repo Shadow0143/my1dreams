@@ -25326,6 +25326,10 @@ body.dark #styleSelector .form-control {
     .wrapper {
         padding: 0px;
     }
+    #dashboard_main{
+        padding: 0px;
+    }
+
 }
 
 
