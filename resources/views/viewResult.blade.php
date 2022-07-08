@@ -58,8 +58,8 @@
             </div>
         @endif
     @else
-        <div class="col-12 text-center text-danger resultdiv">
-            No result for today.
+        <div class="col-12 text-center text-danger " style=" padding: 20%;">
+            <h3> No result for today.</h3>
         </div>
     @endif
 </div>

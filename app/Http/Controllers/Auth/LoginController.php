@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Artisan;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 
 class LoginController extends Controller
 {
@@ -38,8 +41,16 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout');
     }
 
+//     public function customLogout(Request $request) {
+//         Artisan::call('route:cache');
+//         Artisan::call('cache:clear');
+//         Artisan::call('config:clear');
 
+//     Auth::logout();
+//     return redirect('/login');
+//   }
 
 }

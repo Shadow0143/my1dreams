@@ -105,7 +105,7 @@
                                                 </h4>
                                             </div>
                                             <div class="col col-auto text-right">
-                                                <i class="feather icon-book f-50 text-c-pink"></i>
+                                                <i class="fa fa-bitcoin f-50 text-c-pink"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                     <div class="card-block">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <p class="m-b-5">Todays Invest Amount</p>
+                                                <p class="m-b-5">Today's Invest </p>
                                                 <h4 class="m-b-0">
                                                     @if (!empty($todayPlayGame))
                                                         {{ $todayPlayGame }}
@@ -126,7 +126,7 @@
                                                 </h4>
                                             </div>
                                             <div class="col col-auto text-right">
-                                                <i class="feather icon-shopping-cart f-50 text-c-blue"></i>
+                                                <i class="fa fa-bitcoin f-50 text-c-green"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                     <div class="card-block">
                                         <div class="row align-items-center">
                                             <div class="col">
-                                                <p class="m-b-5">Total Invest Amount</p>
+                                                <p class="m-b-5">Total Invest   </p>
                                                 <h4 class="m-b-0">
                                                     @if (!empty($playGame))
                                                         {{ $playGame }}
@@ -148,7 +148,7 @@
                                                 </h4>
                                             </div>
                                             <div class="col col-auto text-right">
-                                                <i class="feather icon-shopping-cart f-50 text-c-blue"></i>
+                                                <i class="fa fa-bitcoin f-50 text-c-blue"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -174,7 +174,7 @@
                                         data-time="{{ $bv['item'] }}"
                                         onclick="tooltip('{{ $dv['game_no'] }}','{{ $dv['game_time'] }}')">
                                         <div class="card  small-game-card ">{{ $dv['game_no'] }}</div>
-                                        ₹{{ $dv['amount'] }}
+                                        {{ $dv['amount'] }}
                                     </a>
                                 </div>
                             @endforeach

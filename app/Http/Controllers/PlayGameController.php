@@ -13,6 +13,12 @@ use App\Models\Result;
 
 class PlayGameController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function playGame()
     {
         $game = Game::all();
@@ -52,7 +58,7 @@ class PlayGameController extends Controller
         Alert::success('Success', 'Done');
         return back();
     }
-
+    
     public function viewResult()
     {
         $result = Result::where('result_date', date('Y-m-d'))->first();

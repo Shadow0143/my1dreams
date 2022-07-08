@@ -8,59 +8,52 @@ use App\Models\User;
 use Alert;
 use Hash;
 use Image;
+use Illuminate\Support\Facades\Artisan;
 
 class CustomController extends Controller
 {
-    
+
     public function customLogin(Request $request)
     {
+        // Artisan::call('route:cache');
+        // Artisan::call('cache:clear');
+        // Artisan::call('config:clear');
+
         $check = 0;
         $request->validate([
             'Phone_number' => 'required',
             'password' => 'required'
         ]);
-
         $credentials = $request->except(['_token']);
-
-        $users = User::select('Phone_number')->where('status',1)->get();
-        // dd($users);
-        
+        $users = User::select('Phone_number')->where('status', 1)->get();
         foreach ($users as $user) {
-            if($user->Phone_number == $request->Phone_number)
-            {
+            if ($user->Phone_number == $request->Phone_number) {
                 $check = 1;
             }
         }
-        // dd($credentials);
-        if($check == 1)
-        {
+        if ($check == 1) {
             if (auth()->attempt($credentials)) {
-
-            return redirect()->route('home');
-
-            }else{
+                return redirect()->route('home');
+            } else {
                 $this->sendFailedLoginResponse('message', 'Your password not matched in our records');
                 return redirect()->back();
             }
-        }else
-        {
-           $this->sendFailedLoginResponse('message', 'Your phone number is not matched in our records');
-
-           return redirect()->back();
+        } else {
+            $this->sendFailedLoginResponse('message', 'Your phone number is not matched in our records');
+            return redirect()->back();
         }
-
     }
 
     public function sendFailedLoginResponse(string $key = null, string $message = null)
     {
-        session()->flash( $key, $message );
+        session()->flash($key, $message);
     }
 
     public function blockPage()
     {
         return view('blockpage');
     }
-    
+
     public function noAccessPage()
     {
         return view('noaccess');
