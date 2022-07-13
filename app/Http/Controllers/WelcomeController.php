@@ -10,7 +10,6 @@ class WelcomeController extends Controller
     public function index()
     {
         $result = Result::where('result_date', date('Y-m-d'))->first();
-        dd($result);
         $result1pm = Result::where('result_date', date('Y-m-d'))->where('game_time','1:00')->first();
         $result4pm = Result::where('result_date', date('Y-m-d'))->where('game_time','4:00')->first();
         $result8pm = Result::where('result_date', date('Y-m-d'))->where('game_time','8:00')->first();

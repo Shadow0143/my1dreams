@@ -1,7 +1,5 @@
 <?php
 
-
-
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MasterController;
@@ -9,14 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CustomController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\WelcomeController;
-use Illuminate\Support\Facades\Artisan; 
-
-
-  Artisan::call('route:cache');
-        Artisan::call('cache:clear');
-        Artisan::call('config:clear');
+Use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,15 +19,12 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-// Route::get('/', function () {
-//  return view('welcome');
-// });
-
-Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('index');
-
-
 Auth::routes();
-Route::middleware(['auth', 'checkblock', 'superadminAccess'])->prefix('admin')->group(function () {
+// return view('blockpage');
+
+
+
+Route::middleware(['auth','checkblock','superadminAccess'])->prefix('admin')->group(function () {
     Route::get('/master', [App\Http\Controllers\MasterController::class, 'master'])->name('master');
     Route::get('/master-form', [App\Http\Controllers\MasterController::class, 'addMasterForm'])->name('addMasterForm');
     Route::post('/submit-master', [App\Http\Controllers\MasterController::class, 'submitMaster'])->name('submitMaster');
@@ -54,9 +42,11 @@ Route::middleware(['auth', 'checkblock', 'superadminAccess'])->prefix('admin')->
     Route::get('/result', [App\Http\Controllers\MasterController::class, 'result'])->name('result');
     Route::get('/result-form', [App\Http\Controllers\MasterController::class, 'resultForm'])->name('resultForm');
     Route::post('/subimt-result', [App\Http\Controllers\MasterController::class, 'submitResult'])->name('submitResult');
+
+
 });
 
-Route::middleware(['auth', 'checkblock', 'masterAccess'])->prefix('master')->group(function () {
+Route::middleware(['auth','checkblock','masterAccess'])->prefix('master')->group(function () {
     Route::get('/member', [App\Http\Controllers\MemberController::class, 'member'])->name('member');
     Route::get('/member-form', [App\Http\Controllers\MemberController::class, 'addMemberForm'])->name('addMemberForm');
     Route::post('/submit-member', [App\Http\Controllers\MemberController::class, 'submitMember'])->name('submitMember');
@@ -67,17 +57,24 @@ Route::middleware(['auth', 'checkblock', 'masterAccess'])->prefix('master')->gro
 
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::post('/custom-login', [App\Http\Controllers\LoginController::class, 'customLogin'])->name('customLogin');
 Route::post('/custom-login', [App\Http\Controllers\CustomController::class, 'customLogin'])->name('customLogin');
 Route::get('/block-page', [App\Http\Controllers\CustomController::class, 'blockpage'])->name('blockpage');
 Route::get('/no-access', [App\Http\Controllers\CustomController::class, 'noAccessPage'])->name('noAccessPage');
+
 Route::get('/play-game', [App\Http\Controllers\PlayGameController::class, 'playGame'])->name('playGame');
 Route::post('/add-amount', [App\Http\Controllers\PlayGameController::class, 'addAmount'])->name('addAmount');
 Route::get('/view-result', [App\Http\Controllers\PlayGameController::class, 'viewResult'])->name('viewResult');
+
 Route::get('/view-profile/{id}', [App\Http\Controllers\ProfileController::class, 'viewProfile'])->name('viewProfile');
 Route::post('/save-profile-image', [App\Http\Controllers\ProfileController::class, 'saveProfileImage'])->name('saveProfileImage');
 Route::post('/save-user-details', [App\Http\Controllers\ProfileController::class, 'saveUserDetails'])->name('saveUserDetails');
 Route::get('/tool-tip', [App\Http\Controllers\HomeController::class, 'toolTip'])->name('toolTip');
 
 
+
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
